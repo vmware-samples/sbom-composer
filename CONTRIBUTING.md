@@ -45,7 +45,7 @@ amend the commit.
 
 ``` shell
 git add .
-git commit --amend
+git commit -s --amend
 git push --force-with-lease origin my-new-feature
 ```
 
@@ -53,7 +53,7 @@ If you need to squash changes into an earlier commit, you can use:
 
 ``` shell
 git add .
-git commit --fixup <commit>
+git commit is --fixup <commit>
 git rebase -i --autosquash main
 git push --force-with-lease origin my-new-feature
 ```
@@ -63,6 +63,11 @@ notification when you git push.
 
 ### Code Style
 
+Be sure you apply a DCO to source files.
+
+We follow Go conventions and best practices. You can read more about them in [ Go (Golang) coding guidelines](https://wiki.crdb.io/wiki/spaces/CRDB/pages/181371303/Go+Golang+coding+guidelines)
+and [Go Coding Standards](https://gochronicles.com/writing-go-code-like-a-pro/).
+
 ### Formatting Commit Messages
 
 We follow the conventions on [How to Write a Git Commit Message](http://chris.beams.io/posts/git-commit/).
@@ -70,6 +75,8 @@ We follow the conventions on [How to Write a Git Commit Message](http://chris.be
 Be sure to include any related GitHub issue references in the commit message.  See
 [GFM syntax](https://guides.github.com/features/mastering-markdown/#GitHub-flavored-markdown) for referencing issues
 and commits.
+
+Make sure you sign all of your commits.
 
 ## Reporting Bugs and Creating Issues
 
