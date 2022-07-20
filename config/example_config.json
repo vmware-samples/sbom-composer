@@ -1,0 +1,16 @@
+{
+    "documentName": "composed-1.0",
+    "packageName": "top-level-artifact",
+    "spdxID": "SPDXRef-composed-sbom-product",
+    "packageVersion": "1.0",
+    "packageDownloadLocation": "Input from user or NOASSERTION",
+    "filesAnalyzed": false,
+    "packageChecksum": {
+        "sha256": "<checksum>"
+    },
+    "packageLicenseConcluded": "license, licenseRef or NOASSERTION",
+    "packageLicenseDeclared": "license, licenseRef or NOASSERTION",
+    "packageCopyrightText": "text or NOASSERTION",
+    "packageSupplier": "Organization or recognized author of product. Optional",
+    "packageComment": "<text>Any relevant comment</text>. Optional"
+}
