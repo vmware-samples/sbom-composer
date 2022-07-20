@@ -1,22 +1,32 @@
 # sbom-composer
 
 ## Overview
+sbom-composer is a tool that serves for composing two or more micro SBOMs into a single SBOM document in SPDX format.
 
 ## Try it out
 
-### Prerequisites
-
-* Prereq 1
-* Prereq 2
-* Prereq 3
-
 ### Build & Run
 
-1. Step 1
-2. Step 2
-3. Step 3
+1. `cd cli/`
+2. `go build`
+3. `compose --dir <path-to-dir-with-spdx-files-to-compose>`
 
+
+### Testing changes
+
+Run your local changes with
+```
+go run cli/sbom_compose.go --dir <path-to-dir-with-spdx-files-to-compose> [flags]
+```
+
+* `flags`: 
+    - `-d`, `--dir`: Folder with micro SBOMs in SPDX format
+    - `-l`, `--load`: Loads documents
+    - `-s`, `--save`: Saves composed SBOM to a given file. `./` by default
+  
 ## Documentation
+
+To be added.
 
 ## Contributing
 
@@ -25,5 +35,4 @@ read our [Developer Certificate of Origin](https://cla.vmware.com/dco). All cont
 signed as described on that page. Your signature certifies that you wrote the patch or have the right to pass it on
 as an open-source patch. For more detailed information, refer to [CONTRIBUTING.md](CONTRIBUTING.md).
 
-## License
 
