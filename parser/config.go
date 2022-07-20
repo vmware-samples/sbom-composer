@@ -6,9 +6,11 @@ package parser
 import (
 	"encoding/json"
 	"fmt"
+	"io/ioutil"
 	"strings"
 
 	"github.com/spdx/tools-golang/builder"
+	"gopkg.in/yaml.v3"
 )
 
 // PackageChecksum is a unique identifier used to verify if all files
@@ -82,4 +84,40 @@ func UnmarshalJSONConfig(jsonData []byte) (*Config, error) {
 	c.PackageChecksum.SHA256 = strings.Trim(string(objmap["packageChecksum"]), "\"{}")
 
 	return c, err
+}
+
+func LoadConfig(file string) *Config {
+	conf := Config{}
+	// err := configor.Load(&conf, file)
+	yml, err := ioutil.ReadFile(file)
+
+	if err != nil {
+		fmt.Println("failed reading yaml file\n", err)
+	}
+
+	data := make(map[string]interface{})
+
+	err = yaml.Unmarshal(yml, &data)
+	if err != nil {
+		fmt.Println("unmarshal failed after reading yaml file\n", err)
+	}
+
+	dataByte, _ := json.Marshal(data)
+	_ = json.Unmarshal(dataByte, &conf)
+
+	if len(conf.PackageDownloadLocation) == 0 {
+		conf.PackageDownloadLocation = NOASSERTION
+	}
+	if len(conf.PackageLicenseConcluded) == 0 {
+		conf.PackageLicenseConcluded = NOASSERTION
+	}
+	if len(conf.PackageLicenseDeclared) == 0 {
+		conf.PackageLicenseDeclared = NOASSERTION
+	}
+	if len(conf.PackageCopyrightText) == 0 {
+		conf.PackageCopyrightText = NOASSERTION
+	}
+	conf.PackageChecksum.SHA256 = strings.Trim(conf.PackageChecksum.SHA256, "\"{}")
+
+	return &conf
 }
