@@ -53,7 +53,7 @@ If you need to squash changes into an earlier commit, you can use:
 
 ``` shell
 git add .
-git commit is --fixup <commit>
+git commit -s --fixup <commit>
 git rebase -i --autosquash main
 git push --force-with-lease origin my-new-feature
 ```
