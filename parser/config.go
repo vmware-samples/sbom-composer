@@ -21,6 +21,11 @@ type PackageChecksum struct {
 }
 
 var NOASSERTION string = "NOASSERTION"
+var SPDXConfigReference *builder.Config2_2 = &builder.Config2_2{
+	NamespacePrefix: "https://spdx.org/spdxdocs/", // TODO: move this to config
+	CreatorType:     "Tool",
+	Creator:         "sbom-composer-1.0", // TODO: automate taking the version
+}
 
 // Config is a collection of configuration settings for builder
 // to create a composed document with.
@@ -87,22 +92,35 @@ func UnmarshalJSONConfig(jsonData []byte) (*Config, error) {
 }
 
 func LoadConfig(file string) *Config {
-	conf := Config{}
-	// err := configor.Load(&conf, file)
-	yml, err := ioutil.ReadFile(file)
+
+	conf := readConfFile(file)
+
+	return createConfig(conf)
+}
+
+func readConfFile(file string) []byte {
+
+	conf, err := ioutil.ReadFile(file)
 
 	if err != nil {
 		fmt.Println("failed reading yaml file\n", err)
 	}
+	return conf
+}
 
-	data := make(map[string]interface{})
+func createConfig(loadedData []byte) *Config {
+	conf := Config{}
 
-	err = yaml.Unmarshal(yml, &data)
+	conf.SPDXConfigRef = SPDXConfigReference
+
+	mapData := make(map[string]interface{})
+
+	err := yaml.Unmarshal(loadedData, &mapData)
 	if err != nil {
 		fmt.Println("unmarshal failed after reading yaml file\n", err)
 	}
 
-	dataByte, _ := json.Marshal(data)
+	dataByte, _ := json.Marshal(mapData)
 	_ = json.Unmarshal(dataByte, &conf)
 
 	if len(conf.PackageDownloadLocation) == 0 {
