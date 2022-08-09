@@ -5,10 +5,8 @@ package parser
 
 import (
 	"fmt"
-	"os"
 
 	"github.com/spdx/tools-golang/builder"
-	"github.com/spdx/tools-golang/tvsaver"
 )
 
 func Build(dirRoot string, conf *Config) (*Document, error) {
@@ -16,7 +14,13 @@ func Build(dirRoot string, conf *Config) (*Document, error) {
 	if err != nil {
 		fmt.Printf("error while building spdx document reference for path %v with config %v, %v: %v\n", dirRoot, conf.PackageName, conf.SPDXConfigRef, err)
 	}
-	fmt.Printf("HERE: %+v\n", spdxDocRef.DocumentName)
+
+	for i := range spdxDocRef.Packages {
+		if spdxDocRef.Packages[i].PackageName == conf.PackageName &&
+			len(spdxDocRef.Packages[i].PackageVersion) == 0 {
+			spdxDocRef.Packages[i].PackageVersion = conf.PackageVersion
+		}
+	}
 	doc := &Document{
 		SPDXDocRef:    spdxDocRef,
 		ConfigDataRef: conf,
@@ -24,23 +28,7 @@ func Build(dirRoot string, conf *Config) (*Document, error) {
 	return doc, nil
 }
 
-func Save(doc *Document, composedDoc string) error {
-	w, err := os.Create(composedDoc)
-	if err != nil {
-		fmt.Printf("error while opening %v for writing: %v\n", composedDoc, err)
-		return err
-	}
-	defer w.Close()
-
-	err = tvsaver.Save2_2(doc.SPDXDocRef, w)
-	if err != nil {
-		fmt.Printf("error while saving %v: %v", composedDoc, err)
-		return err
-	}
-	return nil
-}
-
-func GenerateComposedDoc(dirRoot string, composedDoc string, confFile string) error {
+func GenerateComposedDoc(dirRoot string, output string, confFile string) error {
 	conf := LoadConfig(confFile)
 
 	doc, err := Build(dirRoot, conf)
@@ -48,9 +36,11 @@ func GenerateComposedDoc(dirRoot string, composedDoc string, confFile string) er
 		return err
 	}
 
-	err = Save(doc, composedDoc)
+	composableDocs := LoadAll(dirRoot)
+
+	err = Save(doc, composableDocs, output)
 	if err != nil {
-		fmt.Printf("failed to save composed document %v: %v", composedDoc, err)
+		fmt.Printf("failed to save composed document %v: %v", output, err)
 		return err
 	}
 	return nil

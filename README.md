@@ -22,8 +22,8 @@ go run sbom_compose.go --dir <path-to-dir-with-spdx-files-to-compose> [flags]
 
 * `flags`: 
     - `-d`, `--dir`: Folder with micro SBOMs in SPDX format
-    - `-l`, `--load`: Loads documents
     - `-s`, `--save`: Saves composed SBOM to a given file. `composed.spdx` by default
+    - `-c`, `--conf`: Configuration for the composed document. `sbom-composer/config/example_config.yaml` by default
   
 ## Documentation
 
