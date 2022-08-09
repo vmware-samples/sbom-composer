@@ -6,9 +6,8 @@ package main
 import (
 	"fmt"
 
-	"sbom-composer-go/parser"
-	// "github.com/vmware-samples/sbom-composer/parser"
 	"github.com/spf13/cobra"
+	"github.com/vmware-samples/sbom-composer/parser"
 )
 
 var (
