@@ -9,21 +9,21 @@ sbom-composer is a tool that serves for composing two or more micro SBOMs into a
 
 1. `cd cli/`
 2. `go build`
-3. `compose --dir <path-to-dir-with-spdx-files-to-compose>`
+3. `./compose -d <path-to-dir-with-spdx-files-to-compose> [flags]`
 
+
+* `flags`:
+    - `-d`, `--dir`: Folder with micro SBOMs in SPDX format
+    - `-s`, `--save`: Saves composed SBOM to a given file. `composed.spdx` by default
+    - `-c`, `--conf`: Configuration for the composed document. `sbom-composer/config/example_config.yaml` by default
 
 ### Testing changes
 
 Run your local changes with
 ```
 cd cli/
-go run sbom_compose.go --dir <path-to-dir-with-spdx-files-to-compose> [flags]
+go run sbom_compose.go -d <path-to-dir-with-spdx-files-to-compose> [flags]
 ```
-
-* `flags`: 
-    - `-d`, `--dir`: Folder with micro SBOMs in SPDX format
-    - `-s`, `--save`: Saves composed SBOM to a given file. `composed.spdx` by default
-    - `-c`, `--conf`: Configuration for the composed document. `sbom-composer/config/example_config.yaml` by default
   
 ## Documentation
 
