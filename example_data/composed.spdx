@@ -1,0 +1,1677 @@
+SPDXVersion: SPDX-2.2
+DataLicense: CC0-1.0
+SPDXID: SPDXRef-DOCUMENT
+DocumentName: top-level-artifact
+DocumentNamespace: https://spdx.org/spdxdocs/top-level-artifact-{09dbb7129b763e040adc0cd5eeffb63d9c3fbbfe []}
+Creator: Tool: github.com/spdx/tools-golang/builder
+Creator: Tool: sbom-composer-1.0
+Created: 2022-08-09T21:48:05Z
+
+##### Package: top-level-artifact
+
+PackageName: top-level-artifact
+SPDXID: SPDXRef-Package-top-level-artifact
+PackageVersion: 1.0
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: true
+PackageVerificationCode: 09dbb7129b763e040adc0cd5eeffb63d9c3fbbfe (excludes: )
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: NOASSERTION
+PackageCopyrightText: NOASSERTION
+
+##### Relationships
+
+Relationship: SPDXRef-DOCUMENT DESCRIBES SPDXRef-Package-top-level-artifact
+Relationship: SPDXRef-top-level-artifact-1.0 DESCRIBES SPDXRef-photon-3.0
+Relationship: SPDXRef-top-level-artifact-1.0 DESCRIBES SPDXRef-docwareiy/test1-latest
+
+
+##### Package: 0a016225a33eecbfcb6357f20ef4f4f7b89a78c986fe87a8f7683e511a4b9443
+
+PackageName: 0a016225a33eecbfcb6357f20ef4f4f7b89a78c986fe87a8f7683e511a4b9443
+SPDXID: SPDXRef-742bce9699
+PackageFileName: 0a016225a33eecbfcb6357f20ef4f4f7b89a78c986fe87a8f7683e511a4b9443
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageChecksum: SHA256: 742bce9699978f679680cb837df182097827617800d66afbe74cf271801749fd
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: NOASSERTION
+PackageCopyrightText: NOASSERTION
+PackageComment: <text>
+Layer 1:
+	info: Layer created by commands: /bin/sh -c #(nop) ADD file:2c502d3d272ff0819f3d771e0be6be39eee46c8a7a53d90160b12f2f62bc810a in / 
+	info: Found 'VMware Photon OS/Linux' in /etc/os-release.
+	info: Retrieved package metadata using tdnf default method. 
+
+
+</text>
+
+##### Package: bash
+
+PackageName: bash
+SPDXID: SPDXRef-bash-4.4.18-2.ph3
+PackageVersion: 4.4.18-2.ph3
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: LicenseRef-92fe666
+PackageCopyrightText: NONE
+PackageComment: <text>
+bash:
+	warning: No metadata for key: copyright
+	warning: No metadata for key: download_url
+	warning: No metadata for key: checksum
+	warning: No metadata for key: files
+	warning: No metadata for key: pkg_licenses
+	warning: No metadata for key: pkg_format
+	warning: No metadata for key: src_name
+	warning: No metadata for key: src_version
+
+</text>
+
+##### Package: bzip2-libs
+
+PackageName: bzip2-libs
+SPDXID: SPDXRef-bzip2-libs-1.0.8-2.ph3
+PackageVersion: 1.0.8-2.ph3
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: LicenseRef-f266d93
+PackageCopyrightText: NONE
+PackageComment: <text>
+bzip2-libs:
+	warning: No metadata for key: copyright
+	warning: No metadata for key: download_url
+	warning: No metadata for key: checksum
+	warning: No metadata for key: files
+	warning: No metadata for key: pkg_licenses
+	warning: No metadata for key: pkg_format
+	warning: No metadata for key: src_name
+	warning: No metadata for key: src_version
+
+</text>
+
+##### Package: ca-certificates
+
+PackageName: ca-certificates
+SPDXID: SPDXRef-ca-certificates-20190521-3.ph3
+PackageVersion: 20190521-3.ph3
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: LicenseRef-e06627e
+PackageCopyrightText: NONE
+PackageComment: <text>
+ca-certificates:
+	warning: No metadata for key: copyright
+	warning: No metadata for key: download_url
+	warning: No metadata for key: checksum
+	warning: No metadata for key: files
+	warning: No metadata for key: pkg_licenses
+	warning: No metadata for key: pkg_format
+	warning: No metadata for key: src_name
+	warning: No metadata for key: src_version
+
+</text>
+
+##### Package: ca-certificates-pki
+
+PackageName: ca-certificates-pki
+SPDXID: SPDXRef-ca-certificates-pki-20190521-3.ph3
+PackageVersion: 20190521-3.ph3
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: LicenseRef-e06627e
+PackageCopyrightText: NONE
+PackageComment: <text>
+ca-certificates-pki:
+	warning: No metadata for key: copyright
+	warning: No metadata for key: download_url
+	warning: No metadata for key: checksum
+	warning: No metadata for key: files
+	warning: No metadata for key: pkg_licenses
+	warning: No metadata for key: pkg_format
+	warning: No metadata for key: src_name
+	warning: No metadata for key: src_version
+
+</text>
+
+##### Package: curl
+
+PackageName: curl
+SPDXID: SPDXRef-curl-7.82.0-1.ph3
+PackageVersion: 7.82.0-1.ph3
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: MIT
+PackageCopyrightText: NONE
+PackageComment: <text>
+curl:
+	warning: No metadata for key: copyright
+	warning: No metadata for key: download_url
+	warning: No metadata for key: checksum
+	warning: No metadata for key: files
+	warning: No metadata for key: pkg_licenses
+	warning: No metadata for key: pkg_format
+	warning: No metadata for key: src_name
+	warning: No metadata for key: src_version
+
+</text>
+
+##### Package: curl-libs
+
+PackageName: curl-libs
+SPDXID: SPDXRef-curl-libs-7.82.0-1.ph3
+PackageVersion: 7.82.0-1.ph3
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: MIT
+PackageCopyrightText: NONE
+PackageComment: <text>
+curl-libs:
+	warning: No metadata for key: copyright
+	warning: No metadata for key: download_url
+	warning: No metadata for key: checksum
+	warning: No metadata for key: files
+	warning: No metadata for key: pkg_licenses
+	warning: No metadata for key: pkg_format
+	warning: No metadata for key: src_name
+	warning: No metadata for key: src_version
+
+</text>
+
+##### Package: e2fsprogs-libs
+
+PackageName: e2fsprogs-libs
+SPDXID: SPDXRef-e2fsprogs-libs-1.45.5-3.ph3
+PackageVersion: 1.45.5-3.ph3
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: LicenseRef-1e11d9a
+PackageCopyrightText: NONE
+PackageComment: <text>
+e2fsprogs-libs:
+	warning: No metadata for key: copyright
+	warning: No metadata for key: download_url
+	warning: No metadata for key: checksum
+	warning: No metadata for key: files
+	warning: No metadata for key: pkg_licenses
+	warning: No metadata for key: pkg_format
+	warning: No metadata for key: src_name
+	warning: No metadata for key: src_version
+
+</text>
+
+##### Package: elfutils-libelf
+
+PackageName: elfutils-libelf
+SPDXID: SPDXRef-elfutils-libelf-0.176-1.ph3
+PackageVersion: 0.176-1.ph3
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: LicenseRef-bba2b1d
+PackageCopyrightText: NONE
+PackageComment: <text>
+elfutils-libelf:
+	warning: No metadata for key: copyright
+	warning: No metadata for key: download_url
+	warning: No metadata for key: checksum
+	warning: No metadata for key: files
+	warning: No metadata for key: pkg_licenses
+	warning: No metadata for key: pkg_format
+	warning: No metadata for key: src_name
+	warning: No metadata for key: src_version
+
+</text>
+
+##### Package: expat
+
+PackageName: expat
+SPDXID: SPDXRef-expat-2.2.9-9.ph3
+PackageVersion: 2.2.9-9.ph3
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: MIT
+PackageCopyrightText: NONE
+PackageComment: <text>
+expat:
+	warning: No metadata for key: copyright
+	warning: No metadata for key: download_url
+	warning: No metadata for key: checksum
+	warning: No metadata for key: files
+	warning: No metadata for key: pkg_licenses
+	warning: No metadata for key: pkg_format
+	warning: No metadata for key: src_name
+	warning: No metadata for key: src_version
+
+</text>
+
+##### Package: expat-libs
+
+PackageName: expat-libs
+SPDXID: SPDXRef-expat-libs-2.2.9-9.ph3
+PackageVersion: 2.2.9-9.ph3
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: MIT
+PackageCopyrightText: NONE
+PackageComment: <text>
+expat-libs:
+	warning: No metadata for key: copyright
+	warning: No metadata for key: download_url
+	warning: No metadata for key: checksum
+	warning: No metadata for key: files
+	warning: No metadata for key: pkg_licenses
+	warning: No metadata for key: pkg_format
+	warning: No metadata for key: src_name
+	warning: No metadata for key: src_version
+
+</text>
+
+##### Package: filesystem
+
+PackageName: filesystem
+SPDXID: SPDXRef-filesystem-1.1-4.ph3
+PackageVersion: 1.1-4.ph3
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: LicenseRef-92fe666
+PackageCopyrightText: NONE
+PackageComment: <text>
+filesystem:
+	warning: No metadata for key: copyright
+	warning: No metadata for key: download_url
+	warning: No metadata for key: checksum
+	warning: No metadata for key: files
+	warning: No metadata for key: pkg_licenses
+	warning: No metadata for key: pkg_format
+	warning: No metadata for key: src_name
+	warning: No metadata for key: src_version
+
+</text>
+
+##### Package: glibc
+
+PackageName: glibc
+SPDXID: SPDXRef-glibc-2.28-20.ph3
+PackageVersion: 2.28-20.ph3
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: LicenseRef-0a9356a
+PackageCopyrightText: NONE
+PackageComment: <text>
+glibc:
+	warning: No metadata for key: copyright
+	warning: No metadata for key: download_url
+	warning: No metadata for key: checksum
+	warning: No metadata for key: files
+	warning: No metadata for key: pkg_licenses
+	warning: No metadata for key: pkg_format
+	warning: No metadata for key: src_name
+	warning: No metadata for key: src_version
+
+</text>
+
+##### Package: krb5
+
+PackageName: krb5
+SPDXID: SPDXRef-krb5-1.17-2.ph3
+PackageVersion: 1.17-2.ph3
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: MIT
+PackageCopyrightText: NONE
+PackageComment: <text>
+krb5:
+	warning: No metadata for key: copyright
+	warning: No metadata for key: download_url
+	warning: No metadata for key: checksum
+	warning: No metadata for key: files
+	warning: No metadata for key: pkg_licenses
+	warning: No metadata for key: pkg_format
+	warning: No metadata for key: src_name
+	warning: No metadata for key: src_version
+
+</text>
+
+##### Package: libcap
+
+PackageName: libcap
+SPDXID: SPDXRef-libcap-2.25-8.ph3
+PackageVersion: 2.25-8.ph3
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: LicenseRef-1e11d9a
+PackageCopyrightText: NONE
+PackageComment: <text>
+libcap:
+	warning: No metadata for key: copyright
+	warning: No metadata for key: download_url
+	warning: No metadata for key: checksum
+	warning: No metadata for key: files
+	warning: No metadata for key: pkg_licenses
+	warning: No metadata for key: pkg_format
+	warning: No metadata for key: src_name
+	warning: No metadata for key: src_version
+
+</text>
+
+##### Package: libdb
+
+PackageName: libdb
+SPDXID: SPDXRef-libdb-5.3.28-2.ph3
+PackageVersion: 5.3.28-2.ph3
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: LicenseRef-88cb263
+PackageCopyrightText: NONE
+PackageComment: <text>
+libdb:
+	warning: No metadata for key: copyright
+	warning: No metadata for key: download_url
+	warning: No metadata for key: checksum
+	warning: No metadata for key: files
+	warning: No metadata for key: pkg_licenses
+	warning: No metadata for key: pkg_format
+	warning: No metadata for key: src_name
+	warning: No metadata for key: src_version
+
+</text>
+
+##### Package: libgcc
+
+PackageName: libgcc
+SPDXID: SPDXRef-libgcc-7.3.0-5.ph3
+PackageVersion: 7.3.0-5.ph3
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: LicenseRef-1e11d9a
+PackageCopyrightText: NONE
+PackageComment: <text>
+libgcc:
+	warning: No metadata for key: copyright
+	warning: No metadata for key: download_url
+	warning: No metadata for key: checksum
+	warning: No metadata for key: files
+	warning: No metadata for key: pkg_licenses
+	warning: No metadata for key: pkg_format
+	warning: No metadata for key: src_name
+	warning: No metadata for key: src_version
+
+</text>
+
+##### Package: libmetalink
+
+PackageName: libmetalink
+SPDXID: SPDXRef-libmetalink-0.1.3-2.ph3
+PackageVersion: 0.1.3-2.ph3
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: MIT
+PackageCopyrightText: NONE
+PackageComment: <text>
+libmetalink:
+	warning: No metadata for key: copyright
+	warning: No metadata for key: download_url
+	warning: No metadata for key: checksum
+	warning: No metadata for key: files
+	warning: No metadata for key: pkg_licenses
+	warning: No metadata for key: pkg_format
+	warning: No metadata for key: src_name
+	warning: No metadata for key: src_version
+
+</text>
+
+##### Package: libsolv
+
+PackageName: libsolv
+SPDXID: SPDXRef-libsolv-0.6.35-8.ph3
+PackageVersion: 0.6.35-8.ph3
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: LicenseRef-f266d93
+PackageCopyrightText: NONE
+PackageComment: <text>
+libsolv:
+	warning: No metadata for key: copyright
+	warning: No metadata for key: download_url
+	warning: No metadata for key: checksum
+	warning: No metadata for key: files
+	warning: No metadata for key: pkg_licenses
+	warning: No metadata for key: pkg_format
+	warning: No metadata for key: src_name
+	warning: No metadata for key: src_version
+
+</text>
+
+##### Package: libssh2
+
+PackageName: libssh2
+SPDXID: SPDXRef-libssh2-1.9.0-2.ph3
+PackageVersion: 1.9.0-2.ph3
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: LicenseRef-f266d93
+PackageCopyrightText: NONE
+PackageComment: <text>
+libssh2:
+	warning: No metadata for key: copyright
+	warning: No metadata for key: download_url
+	warning: No metadata for key: checksum
+	warning: No metadata for key: files
+	warning: No metadata for key: pkg_licenses
+	warning: No metadata for key: pkg_format
+	warning: No metadata for key: src_name
+	warning: No metadata for key: src_version
+
+</text>
+
+##### Package: lua
+
+PackageName: lua
+SPDXID: SPDXRef-lua-5.3.5-3.ph3
+PackageVersion: 5.3.5-3.ph3
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: MIT
+PackageCopyrightText: NONE
+PackageComment: <text>
+lua:
+	warning: No metadata for key: copyright
+	warning: No metadata for key: download_url
+	warning: No metadata for key: checksum
+	warning: No metadata for key: files
+	warning: No metadata for key: pkg_licenses
+	warning: No metadata for key: pkg_format
+	warning: No metadata for key: src_name
+	warning: No metadata for key: src_version
+
+</text>
+
+##### Package: ncurses-libs
+
+PackageName: ncurses-libs
+SPDXID: SPDXRef-ncurses-libs-6.1-4.ph3
+PackageVersion: 6.1-4.ph3
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: MIT
+PackageCopyrightText: NONE
+PackageComment: <text>
+ncurses-libs:
+	warning: No metadata for key: copyright
+	warning: No metadata for key: download_url
+	warning: No metadata for key: checksum
+	warning: No metadata for key: files
+	warning: No metadata for key: pkg_licenses
+	warning: No metadata for key: pkg_format
+	warning: No metadata for key: src_name
+	warning: No metadata for key: src_version
+
+</text>
+
+##### Package: nspr
+
+PackageName: nspr
+SPDXID: SPDXRef-nspr-4.21-1.ph3
+PackageVersion: 4.21-1.ph3
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: LicenseRef-4afa27a
+PackageCopyrightText: NONE
+PackageComment: <text>
+nspr:
+	warning: No metadata for key: copyright
+	warning: No metadata for key: download_url
+	warning: No metadata for key: checksum
+	warning: No metadata for key: files
+	warning: No metadata for key: pkg_licenses
+	warning: No metadata for key: pkg_format
+	warning: No metadata for key: src_name
+	warning: No metadata for key: src_version
+
+</text>
+
+##### Package: nss-libs
+
+PackageName: nss-libs
+SPDXID: SPDXRef-nss-libs-3.44-7.ph3
+PackageVersion: 3.44-7.ph3
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: LicenseRef-4afa27a
+PackageCopyrightText: NONE
+PackageComment: <text>
+nss-libs:
+	warning: No metadata for key: copyright
+	warning: No metadata for key: download_url
+	warning: No metadata for key: checksum
+	warning: No metadata for key: files
+	warning: No metadata for key: pkg_licenses
+	warning: No metadata for key: pkg_format
+	warning: No metadata for key: src_name
+	warning: No metadata for key: src_version
+
+</text>
+
+##### Package: openssl
+
+PackageName: openssl
+SPDXID: SPDXRef-openssl-1.0.2zc-2.ph3
+PackageVersion: 1.0.2zc-2.ph3
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: OpenSSL
+PackageCopyrightText: NONE
+PackageComment: <text>
+openssl:
+	warning: No metadata for key: copyright
+	warning: No metadata for key: download_url
+	warning: No metadata for key: checksum
+	warning: No metadata for key: files
+	warning: No metadata for key: pkg_licenses
+	warning: No metadata for key: pkg_format
+	warning: No metadata for key: src_name
+	warning: No metadata for key: src_version
+
+</text>
+
+##### Package: photon
+
+PackageName: photon
+SPDXID: SPDXRef-photon-3.0
+PackageVersion: 3.0
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: true
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: NOASSERTION
+PackageCopyrightText: NOASSERTION
+
+##### Package: photon-release
+
+PackageName: photon-release
+SPDXID: SPDXRef-photon-release-3.0-6.ph3
+PackageVersion: 3.0-6.ph3
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: LicenseRef-f124779
+PackageCopyrightText: NONE
+PackageComment: <text>
+photon-release:
+	warning: No metadata for key: copyright
+	warning: No metadata for key: download_url
+	warning: No metadata for key: checksum
+	warning: No metadata for key: files
+	warning: No metadata for key: pkg_licenses
+	warning: No metadata for key: pkg_format
+	warning: No metadata for key: src_name
+	warning: No metadata for key: src_version
+
+</text>
+
+##### Package: photon-repos
+
+PackageName: photon-repos
+SPDXID: SPDXRef-photon-repos-3.0-8.ph3
+PackageVersion: 3.0-8.ph3
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: LicenseRef-f124779
+PackageCopyrightText: NONE
+PackageComment: <text>
+photon-repos:
+	warning: No metadata for key: copyright
+	warning: No metadata for key: download_url
+	warning: No metadata for key: checksum
+	warning: No metadata for key: files
+	warning: No metadata for key: pkg_licenses
+	warning: No metadata for key: pkg_format
+	warning: No metadata for key: src_name
+	warning: No metadata for key: src_version
+
+</text>
+
+##### Package: popt
+
+PackageName: popt
+SPDXID: SPDXRef-popt-1.16-5.ph3
+PackageVersion: 1.16-5.ph3
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: MIT
+PackageCopyrightText: NONE
+PackageComment: <text>
+popt:
+	warning: No metadata for key: copyright
+	warning: No metadata for key: download_url
+	warning: No metadata for key: checksum
+	warning: No metadata for key: files
+	warning: No metadata for key: pkg_licenses
+	warning: No metadata for key: pkg_format
+	warning: No metadata for key: src_name
+	warning: No metadata for key: src_version
+
+</text>
+
+##### Package: readline
+
+PackageName: readline
+SPDXID: SPDXRef-readline-7.0-2.ph3
+PackageVersion: 7.0-2.ph3
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: LicenseRef-d953b10
+PackageCopyrightText: NONE
+PackageComment: <text>
+readline:
+	warning: No metadata for key: copyright
+	warning: No metadata for key: download_url
+	warning: No metadata for key: checksum
+	warning: No metadata for key: files
+	warning: No metadata for key: pkg_licenses
+	warning: No metadata for key: pkg_format
+	warning: No metadata for key: src_name
+	warning: No metadata for key: src_version
+
+</text>
+
+##### Package: rpm-libs
+
+PackageName: rpm-libs
+SPDXID: SPDXRef-rpm-libs-4.14.3-1.ph3
+PackageVersion: 4.14.3-1.ph3
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: LicenseRef-1e11d9a
+PackageCopyrightText: NONE
+PackageComment: <text>
+rpm-libs:
+	warning: No metadata for key: copyright
+	warning: No metadata for key: download_url
+	warning: No metadata for key: checksum
+	warning: No metadata for key: files
+	warning: No metadata for key: pkg_licenses
+	warning: No metadata for key: pkg_format
+	warning: No metadata for key: src_name
+	warning: No metadata for key: src_version
+
+</text>
+
+##### Package: sqlite-libs
+
+PackageName: sqlite-libs
+SPDXID: SPDXRef-sqlite-libs-3.35.5-1.ph3
+PackageVersion: 3.35.5-1.ph3
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: LicenseRef-116ca55
+PackageCopyrightText: NONE
+PackageComment: <text>
+sqlite-libs:
+	warning: No metadata for key: copyright
+	warning: No metadata for key: download_url
+	warning: No metadata for key: checksum
+	warning: No metadata for key: files
+	warning: No metadata for key: pkg_licenses
+	warning: No metadata for key: pkg_format
+	warning: No metadata for key: src_name
+	warning: No metadata for key: src_version
+
+</text>
+
+##### Package: tdnf
+
+PackageName: tdnf
+SPDXID: SPDXRef-tdnf-3.1.8-2.ph3
+PackageVersion: 3.1.8-2.ph3
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: LicenseRef-b5ef29a
+PackageCopyrightText: NONE
+PackageComment: <text>
+tdnf:
+	warning: No metadata for key: copyright
+	warning: No metadata for key: download_url
+	warning: No metadata for key: checksum
+	warning: No metadata for key: files
+	warning: No metadata for key: pkg_licenses
+	warning: No metadata for key: pkg_format
+	warning: No metadata for key: src_name
+	warning: No metadata for key: src_version
+
+</text>
+
+##### Package: tdnf-cli-libs
+
+PackageName: tdnf-cli-libs
+SPDXID: SPDXRef-tdnf-cli-libs-3.1.8-2.ph3
+PackageVersion: 3.1.8-2.ph3
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: LicenseRef-b5ef29a
+PackageCopyrightText: NONE
+PackageComment: <text>
+tdnf-cli-libs:
+	warning: No metadata for key: copyright
+	warning: No metadata for key: download_url
+	warning: No metadata for key: checksum
+	warning: No metadata for key: files
+	warning: No metadata for key: pkg_licenses
+	warning: No metadata for key: pkg_format
+	warning: No metadata for key: src_name
+	warning: No metadata for key: src_version
+
+</text>
+
+##### Package: toybox
+
+PackageName: toybox
+SPDXID: SPDXRef-toybox-0.8.6-2.ph3
+PackageVersion: 0.8.6-2.ph3
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: LicenseRef-f266d93
+PackageCopyrightText: NONE
+PackageComment: <text>
+toybox:
+	warning: No metadata for key: copyright
+	warning: No metadata for key: download_url
+	warning: No metadata for key: checksum
+	warning: No metadata for key: files
+	warning: No metadata for key: pkg_licenses
+	warning: No metadata for key: pkg_format
+	warning: No metadata for key: src_name
+	warning: No metadata for key: src_version
+
+</text>
+
+##### Package: xz-libs
+
+PackageName: xz-libs
+SPDXID: SPDXRef-xz-libs-5.2.4-2.ph3
+PackageVersion: 5.2.4-2.ph3
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: LicenseRef-bd8fbda
+PackageCopyrightText: NONE
+PackageComment: <text>
+xz-libs:
+	warning: No metadata for key: copyright
+	warning: No metadata for key: download_url
+	warning: No metadata for key: checksum
+	warning: No metadata for key: files
+	warning: No metadata for key: pkg_licenses
+	warning: No metadata for key: pkg_format
+	warning: No metadata for key: src_name
+	warning: No metadata for key: src_version
+
+</text>
+
+##### Package: zlib
+
+PackageName: zlib
+SPDXID: SPDXRef-zlib-1.2.11-2.ph3
+PackageVersion: 1.2.11-2.ph3
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: zlib
+PackageCopyrightText: NONE
+PackageComment: <text>
+zlib:
+	warning: No metadata for key: copyright
+	warning: No metadata for key: download_url
+	warning: No metadata for key: checksum
+	warning: No metadata for key: files
+	warning: No metadata for key: pkg_licenses
+	warning: No metadata for key: pkg_format
+	warning: No metadata for key: src_name
+	warning: No metadata for key: src_version
+
+</text>
+
+##### Package: zstd-libs
+
+PackageName: zstd-libs
+SPDXID: SPDXRef-zstd-libs-1.4.5-1.ph3
+PackageVersion: 1.4.5-1.ph3
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: LicenseRef-d935702
+PackageCopyrightText: NONE
+PackageComment: <text>
+zstd-libs:
+	warning: No metadata for key: copyright
+	warning: No metadata for key: download_url
+	warning: No metadata for key: checksum
+	warning: No metadata for key: files
+	warning: No metadata for key: pkg_licenses
+	warning: No metadata for key: pkg_format
+	warning: No metadata for key: src_name
+	warning: No metadata for key: src_version
+
+</text>
+
+##### Other Licenses
+
+LicenseID: LicenseRef-1e11d9a
+ExtractedText: Original license: GPLv2+
+
+LicenseID: LicenseRef-88cb263
+ExtractedText: Original license: BSD and LGPLv2 and Sleepycat
+
+LicenseID: LicenseRef-116ca55
+ExtractedText: Original license: Public Domain
+
+LicenseID: LicenseRef-f124779
+ExtractedText: Original license: Apache License
+
+LicenseID: LicenseRef-92fe666
+ExtractedText: Original license: GPLv3
+
+LicenseID: LicenseRef-d935702
+ExtractedText: Original license: BSD and GPLv2
+
+LicenseID: LicenseRef-bd8fbda
+ExtractedText: Original license: GPLv2+ and GPLv3+ and LGPLv2+
+
+LicenseID: LicenseRef-e06627e
+ExtractedText: Original license: Custom
+
+LicenseID: LicenseRef-f266d93
+ExtractedText: Original license: BSD
+
+LicenseID: LicenseRef-b5ef29a
+ExtractedText: Original license: LGPLv2.1,GPLv2
+
+LicenseID: LicenseRef-4afa27a
+ExtractedText: Original license: MPLv2.0
+
+LicenseID: LicenseRef-d953b10
+ExtractedText: Original license: GPLv3+
+
+LicenseID: LicenseRef-0a9356a
+ExtractedText: Original license: LGPLv2+
+
+LicenseID: LicenseRef-bba2b1d
+ExtractedText: Original license: GPLv2+ or LGPLv3+
+
+##### Relationships
+
+Relationship: SPDXRef-photon-3.0 CONTAINS SPDXRef-742bce9699
+Relationship: SPDXRef-742bce9699 CONTAINS SPDXRef-bash-4.4.18-2.ph3
+Relationship: SPDXRef-742bce9699 CONTAINS SPDXRef-bzip2-libs-1.0.8-2.ph3
+Relationship: SPDXRef-742bce9699 CONTAINS SPDXRef-ca-certificates-20190521-3.ph3
+Relationship: SPDXRef-742bce9699 CONTAINS SPDXRef-ca-certificates-pki-20190521-3.ph3
+Relationship: SPDXRef-742bce9699 CONTAINS SPDXRef-curl-7.82.0-1.ph3
+Relationship: SPDXRef-742bce9699 CONTAINS SPDXRef-curl-libs-7.82.0-1.ph3
+Relationship: SPDXRef-742bce9699 CONTAINS SPDXRef-e2fsprogs-libs-1.45.5-3.ph3
+Relationship: SPDXRef-742bce9699 CONTAINS SPDXRef-elfutils-libelf-0.176-1.ph3
+Relationship: SPDXRef-742bce9699 CONTAINS SPDXRef-expat-2.2.9-9.ph3
+Relationship: SPDXRef-742bce9699 CONTAINS SPDXRef-expat-libs-2.2.9-9.ph3
+Relationship: SPDXRef-742bce9699 CONTAINS SPDXRef-filesystem-1.1-4.ph3
+Relationship: SPDXRef-742bce9699 CONTAINS SPDXRef-glibc-2.28-20.ph3
+Relationship: SPDXRef-742bce9699 CONTAINS SPDXRef-krb5-1.17-2.ph3
+Relationship: SPDXRef-742bce9699 CONTAINS SPDXRef-libcap-2.25-8.ph3
+Relationship: SPDXRef-742bce9699 CONTAINS SPDXRef-libdb-5.3.28-2.ph3
+Relationship: SPDXRef-742bce9699 CONTAINS SPDXRef-libgcc-7.3.0-5.ph3
+Relationship: SPDXRef-742bce9699 CONTAINS SPDXRef-libmetalink-0.1.3-2.ph3
+Relationship: SPDXRef-742bce9699 CONTAINS SPDXRef-libsolv-0.6.35-8.ph3
+Relationship: SPDXRef-742bce9699 CONTAINS SPDXRef-libssh2-1.9.0-2.ph3
+Relationship: SPDXRef-742bce9699 CONTAINS SPDXRef-lua-5.3.5-3.ph3
+Relationship: SPDXRef-742bce9699 CONTAINS SPDXRef-ncurses-libs-6.1-4.ph3
+Relationship: SPDXRef-742bce9699 CONTAINS SPDXRef-nspr-4.21-1.ph3
+Relationship: SPDXRef-742bce9699 CONTAINS SPDXRef-nss-libs-3.44-7.ph3
+Relationship: SPDXRef-742bce9699 CONTAINS SPDXRef-openssl-1.0.2zc-2.ph3
+Relationship: SPDXRef-742bce9699 CONTAINS SPDXRef-photon-release-3.0-6.ph3
+Relationship: SPDXRef-742bce9699 CONTAINS SPDXRef-photon-repos-3.0-8.ph3
+Relationship: SPDXRef-742bce9699 CONTAINS SPDXRef-popt-1.16-5.ph3
+Relationship: SPDXRef-742bce9699 CONTAINS SPDXRef-readline-7.0-2.ph3
+Relationship: SPDXRef-742bce9699 CONTAINS SPDXRef-rpm-libs-4.14.3-1.ph3
+Relationship: SPDXRef-742bce9699 CONTAINS SPDXRef-sqlite-libs-3.35.5-1.ph3
+Relationship: SPDXRef-742bce9699 CONTAINS SPDXRef-tdnf-3.1.8-2.ph3
+Relationship: SPDXRef-742bce9699 CONTAINS SPDXRef-tdnf-cli-libs-3.1.8-2.ph3
+Relationship: SPDXRef-742bce9699 CONTAINS SPDXRef-toybox-0.8.6-2.ph3
+Relationship: SPDXRef-742bce9699 CONTAINS SPDXRef-xz-libs-5.2.4-2.ph3
+Relationship: SPDXRef-742bce9699 CONTAINS SPDXRef-zlib-1.2.11-2.ph3
+Relationship: SPDXRef-742bce9699 CONTAINS SPDXRef-zstd-libs-1.4.5-1.ph3
+
+
+##### Package: 79b85b1676b5b2c0fcf88ffc2ce0720e53c1053cf6c4053863169407fd09e33d
+
+PackageName: 79b85b1676b5b2c0fcf88ffc2ce0720e53c1053cf6c4053863169407fd09e33d
+SPDXID: SPDXRef-0198944a98
+PackageFileName: 79b85b1676b5b2c0fcf88ffc2ce0720e53c1053cf6c4053863169407fd09e33d
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageChecksum: SHA256: 0198944a9875795965a3677126ab8f7447936958d7c962005027ccd0b96d8831
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: NOASSERTION
+PackageCopyrightText: NOASSERTION
+PackageComment: <text>
+Layer 2:
+	info: Layer created by commands: /bin/sh -c addgroup -g 1000 node     && adduser -u 1000 -G node -s /bin/sh -D node     && apk add --no-cache         libstdc++     && apk add --no-cache --virtual .build-deps         binutils-gold         curl         g++         gcc         gnupg         libgcc         linux-headers         make         python   && for key in     94AE36675C464D64BAFA68DD7434390BDBE9B9C5     FD3A5288F042B6850C66B31F09FE44734EB7990E     71DCFD284A79C3B38668286BC97EC7A07EDE3FC1     DD8F2338BAE7501E3DD5AC78C273792F7D83545D     C4F0DFFF4E8C1A8236409D08E73BC641CC11F4C8     B9AE9905FFD7803F25714661B63B535A4C206CA9     56730D5401028683275BD23C23EFEFE93C4CFFFE     77984A986EBC2AA786BC0F66B01FBB92821C587A   ; do     gpg --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys "$key" ||     gpg --keyserver hkp://ipv4.pool.sks-keyservers.net --recv-keys "$key" ||     gpg --keyserver hkp://pgp.mit.edu:80 --recv-keys "$key" ;   done     && curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION.tar.xz"     && curl -SLO --compressed "https://nodejs.org/dist/v$NODE_VERSION/SHASUMS256.txt.asc"     && gpg --batch --decrypt --output SHASUMS256.txt SHASUMS256.txt.asc     && grep " node-v$NODE_VERSION.tar.xz\$" SHASUMS256.txt | sha256sum -c -     && tar -xf "node-v$NODE_VERSION.tar.xz"     && cd "node-v$NODE_VERSION"     && ./configure     && make -j$(getconf _NPROCESSORS_ONLN)     && make install     && apk del .build-deps     && cd ..     && rm -Rf "node-v$NODE_VERSION"     && rm "node-v$NODE_VERSION.tar.xz" SHASUMS256.txt.asc SHASUMS256.txt
+	warning: 
+Unrecognized Commands:addgroup -g 1000 node
+adduser -u 1000 -G node -s /bin/sh -D node
+gpg --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys $key
+gpg --keyserver hkp://ipv4.pool.sks-keyservers.net --recv-keys $key
+gpg --keyserver hkp://pgp.mit.edu:80 --recv-keys $key
+curl -SLO https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION.tar.xz
+curl -SLO --compressed https://nodejs.org/dist/v$NODE_VERSION/SHASUMS256.txt.asc
+gpg --batch --decrypt --output SHASUMS256.txt SHASUMS256.txt.asc
+grep node-v$NODE_VERSION.tar.xz$ SHASUMS256.txt | sha256sum -c -
+tar -xf node-v$NODE_VERSION.tar.xz
+cd node-v$NODE_VERSION
+./configure
+make -j$(getconf _NPROCESSORS_ONLN
+make install
+cd ..
+rm -Rf node-v$NODE_VERSION
+rm node-v$NODE_VERSION.tar.xz SHASUMS256.txt.asc SHASUMS256.txt
+
+	info: Retrieved package metadata using apk default method. 
+
+
+</text>
+
+##### Package: f2e356122dbfdbbfa02aa9e1bb4806447547da0ea48df115084df370397150fc
+
+PackageName: f2e356122dbfdbbfa02aa9e1bb4806447547da0ea48df115084df370397150fc
+SPDXID: SPDXRef-15f71623fd
+PackageFileName: f2e356122dbfdbbfa02aa9e1bb4806447547da0ea48df115084df370397150fc
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageChecksum: SHA256: 15f71623fd36a1462bb16b91f81d746e1a26111f157a36279a9c86a1dd4b971d
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: NOASSERTION
+PackageCopyrightText: NOASSERTION
+PackageComment: <text>
+Layer 8:
+	info: Layer created by commands: /bin/sh -c #(nop) COPY file:dc212c1ceba1949d14946cf67c33f05916e392a2b00ad3e7c3f5fdcaf17f39bb in ./ 
+	warning: Unknown content. Additional analysis may be required.
+	info: Retrieved package metadata using apk default method. 
+
+
+</text>
+
+##### Package: 66b09ee685e638663b70dcd2500d17a2cf15dbc32f749e12f39b7b8b22c4ea24
+
+PackageName: 66b09ee685e638663b70dcd2500d17a2cf15dbc32f749e12f39b7b8b22c4ea24
+SPDXID: SPDXRef-35b0e956b3
+PackageFileName: 66b09ee685e638663b70dcd2500d17a2cf15dbc32f749e12f39b7b8b22c4ea24
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageChecksum: SHA256: 35b0e956b31f9267b9b2970c3cd77f6ff142daee4d54fc598ef38818ac8cec48
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: NOASSERTION
+PackageCopyrightText: NOASSERTION
+PackageComment: <text>
+Layer 11:
+	info: Layer created by commands: /bin/sh -c npm i || :
+	warning: 
+Unrecognized Commands:npm i
+:
+
+	info: Retrieved package metadata using apk default method. 
+
+
+</text>
+
+##### Package: 59163eaf9fddd35bbac9f08775c5e718bf0d601d6a759527f18dad10525888a0
+
+PackageName: 59163eaf9fddd35bbac9f08775c5e718bf0d601d6a759527f18dad10525888a0
+SPDXID: SPDXRef-40d9b405a0
+PackageFileName: 59163eaf9fddd35bbac9f08775c5e718bf0d601d6a759527f18dad10525888a0
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageChecksum: SHA256: 40d9b405a088df6dcc26ad1dc464c0d47abd82c16039250a596aa37ed7632966
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: NOASSERTION
+PackageCopyrightText: NOASSERTION
+PackageComment: <text>
+Layer 5:
+	info: Layer created by commands: /bin/sh -c apk --no-cache add curl ca-certificates     && echo "Pulling watchdog binary from Github."     && curl -sSLf https://github.com/openfaas-incubator/of-watchdog/releases/download/0.4.1/of-watchdog > /usr/bin/fwatchdog     && chmod +x /usr/bin/fwatchdog     && apk del curl
+	warning: 
+Unrecognized Commands:echo Pulling watchdog binary from Github.
+curl -sSLf https://github.com/openfaas-incubator/of-watchdog/releases/download/0.4.1/of-watchdog > /usr/bin/fwatchdog
+chmod +x /usr/bin/fwatchdog
+
+	info: Retrieved package metadata using apk default method. 
+
+
+</text>
+
+##### Package: 71727f49868ba6272ebda73b0c2f55eb0ff231806e5e9b06f1854d0b707e04db
+
+PackageName: 71727f49868ba6272ebda73b0c2f55eb0ff231806e5e9b06f1854d0b707e04db
+SPDXID: SPDXRef-43a72a735a
+PackageFileName: 71727f49868ba6272ebda73b0c2f55eb0ff231806e5e9b06f1854d0b707e04db
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageChecksum: SHA256: 43a72a735a9aeabd33e4e98c3384cd772d511a65319287dc110ecd1e1d0f9a8d
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: NOASSERTION
+PackageCopyrightText: NOASSERTION
+PackageComment: <text>
+Layer 9:
+	info: Layer created by commands: /bin/sh -c #(nop) WORKDIR /home/app/function
+	warning: No information about filesystem creation
+	info: Retrieved package metadata using apk default method. 
+
+
+</text>
+
+##### Package: 605ce1bd3f3164f2949a30501cc596f52a72de05da1306ab360055f0d7130c32
+
+PackageName: 605ce1bd3f3164f2949a30501cc596f52a72de05da1306ab360055f0d7130c32
+SPDXID: SPDXRef-9dfa40a0da
+PackageFileName: 605ce1bd3f3164f2949a30501cc596f52a72de05da1306ab360055f0d7130c32
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageChecksum: SHA256: 9dfa40a0da3b1a8a7c34abc596d81ede2dba4ecd5c0a7211086d6685da1ce6ef
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: NOASSERTION
+PackageCopyrightText: NOASSERTION
+PackageComment: <text>
+Layer 1:
+	info: Layer created by commands: /bin/sh -c #(nop) ADD file:6edc55fb54ec9fc3658c8f5176a70e792103a516154442f94fed8e0290e4960e in / 
+	info: Found 'Alpine Linux v3.6' in /etc/os-release.
+	info: Retrieved package metadata using apk default method. 
+
+
+</text>
+
+##### Package: 3acfa43264f2a850a65f5cd0807d456ad64c7a9c2c5d21f032af28a1672351ed
+
+PackageName: 3acfa43264f2a850a65f5cd0807d456ad64c7a9c2c5d21f032af28a1672351ed
+SPDXID: SPDXRef-a0ff854922
+PackageFileName: 3acfa43264f2a850a65f5cd0807d456ad64c7a9c2c5d21f032af28a1672351ed
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageChecksum: SHA256: a0ff854922a93719453310e2473adc634fe0e6cef6a88fe26c5bf4613c62936a
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: NOASSERTION
+PackageCopyrightText: NOASSERTION
+PackageComment: <text>
+Layer 12:
+	info: Layer created by commands: /bin/sh -c #(nop) COPY dir:ba30326752e4633c44aa2666843b63df6665de9d8fed7d34e25edee2506fae58 in ./ 
+	warning: Unknown content. Additional analysis may be required.
+	info: Retrieved package metadata using apk default method. 
+
+
+</text>
+
+##### Package: 9499fc22d590f8ca489376c174cdfabb3bb9a5568ac0b5defc8301451a3c5958
+
+PackageName: 9499fc22d590f8ca489376c174cdfabb3bb9a5568ac0b5defc8301451a3c5958
+SPDXID: SPDXRef-a1277d4358
+PackageFileName: 9499fc22d590f8ca489376c174cdfabb3bb9a5568ac0b5defc8301451a3c5958
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageChecksum: SHA256: a1277d4358c4dafed8326a286ecea2334a34a37c40bfde2ae8f0cf6ee037a1e2
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: NOASSERTION
+PackageCopyrightText: NOASSERTION
+PackageComment: <text>
+Layer 13:
+	info: Layer created by commands: /bin/sh -c chown app:app -R /home/app     && chmod 777 /tmp
+	warning: 
+Unrecognized Commands:chown app:app -R /home/app
+chmod 777 /tmp
+
+	info: Retrieved package metadata using apk default method. 
+
+
+</text>
+
+##### Package: fe705f8a5597fd81c675a2dfda4eb3393de67c0aa7edb9ef3ec5b4e9678b9700
+
+PackageName: fe705f8a5597fd81c675a2dfda4eb3393de67c0aa7edb9ef3ec5b4e9678b9700
+SPDXID: SPDXRef-a9907994ea
+PackageFileName: fe705f8a5597fd81c675a2dfda4eb3393de67c0aa7edb9ef3ec5b4e9678b9700
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageChecksum: SHA256: a9907994ea28ecf4fe1a66225ce1e6debfe292e9f72849a6030ab8bd845ec6bb
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: NOASSERTION
+PackageCopyrightText: NOASSERTION
+PackageComment: <text>
+Layer 7:
+	info: Layer created by commands: /bin/sh -c npm i
+	warning: 
+Unrecognized Commands:npm i
+
+	info: Retrieved package metadata using apk default method. 
+
+
+</text>
+
+##### Package: alpine-baselayout
+
+PackageName: alpine-baselayout
+SPDXID: SPDXRef-alpine-baselayout-3.0.4-r0
+PackageVersion: 3.0.4-r0
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: LicenseRef-c467809
+PackageCopyrightText: NONE
+PackageComment: <text>
+alpine-baselayout:
+	warning: No metadata for key: copyright
+	warning: No metadata for key: download_url
+	warning: No metadata for key: checksum
+	warning: No metadata for key: pkg_licenses
+	warning: No metadata for key: pkg_format
+	warning: No metadata for key: src_name
+	warning: No metadata for key: src_version
+
+</text>
+
+##### Package: alpine-keys
+
+PackageName: alpine-keys
+SPDXID: SPDXRef-alpine-keys-2.1-r1
+PackageVersion: 2.1-r1
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: LicenseRef-c7ea3b7
+PackageCopyrightText: NONE
+PackageComment: <text>
+alpine-keys:
+	warning: No metadata for key: copyright
+	warning: No metadata for key: download_url
+	warning: No metadata for key: checksum
+	warning: No metadata for key: pkg_licenses
+	warning: No metadata for key: pkg_format
+	warning: No metadata for key: src_name
+	warning: No metadata for key: src_version
+
+</text>
+
+##### Package: apk-tools
+
+PackageName: apk-tools
+SPDXID: SPDXRef-apk-tools-2.7.5-r0
+PackageVersion: 2.7.5-r0
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: LicenseRef-c467809
+PackageCopyrightText: NONE
+PackageComment: <text>
+apk-tools:
+	warning: No metadata for key: copyright
+	warning: No metadata for key: download_url
+	warning: No metadata for key: checksum
+	warning: No metadata for key: pkg_licenses
+	warning: No metadata for key: pkg_format
+	warning: No metadata for key: src_name
+	warning: No metadata for key: src_version
+
+</text>
+
+##### Package: d208bbcbf0790d2ccb68622375c68a84a9d7d087ac82c7a7f2bc58ae7d500f41
+
+PackageName: d208bbcbf0790d2ccb68622375c68a84a9d7d087ac82c7a7f2bc58ae7d500f41
+SPDXID: SPDXRef-b2fe6dd838
+PackageFileName: d208bbcbf0790d2ccb68622375c68a84a9d7d087ac82c7a7f2bc58ae7d500f41
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageChecksum: SHA256: b2fe6dd838abf3c1ab64dea7bfc626b041fb71ab7d099dd8bdacc88c85ed5bf2
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: NOASSERTION
+PackageCopyrightText: NOASSERTION
+PackageComment: <text>
+Layer 10:
+	info: Layer created by commands: /bin/sh -c #(nop) COPY file:c44bbb83f7ee8a400a44d8102acd5c164f941db0db13abba070584e3653495d9 in ./ 
+	warning: Unknown content. Additional analysis may be required.
+	info: Retrieved package metadata using apk default method. 
+
+
+</text>
+
+##### Package: busybox
+
+PackageName: busybox
+SPDXID: SPDXRef-busybox-1.26.2-r9
+PackageVersion: 1.26.2-r9
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: LicenseRef-c467809
+PackageCopyrightText: NONE
+PackageComment: <text>
+busybox:
+	warning: No metadata for key: copyright
+	warning: No metadata for key: download_url
+	warning: No metadata for key: checksum
+	warning: No metadata for key: pkg_licenses
+	warning: No metadata for key: pkg_format
+	warning: No metadata for key: src_name
+	warning: No metadata for key: src_version
+
+</text>
+
+##### Package: ca-certificates
+
+PackageName: ca-certificates
+SPDXID: SPDXRef-ca-certificates-20161130-r2
+PackageVersion: 20161130-r2
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: LicenseRef-0ab4d9b
+PackageCopyrightText: NONE
+PackageComment: <text>
+ca-certificates:
+	warning: No metadata for key: copyright
+	warning: No metadata for key: download_url
+	warning: No metadata for key: checksum
+	warning: No metadata for key: pkg_licenses
+	warning: No metadata for key: pkg_format
+	warning: No metadata for key: src_name
+	warning: No metadata for key: src_version
+
+</text>
+
+##### Package: docwareiy/test1
+
+PackageName: docwareiy/test1
+SPDXID: SPDXRef-docwareiy-test1-latest
+PackageVersion: latest
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: true
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: NOASSERTION
+PackageCopyrightText: NOASSERTION
+
+##### Package: 291b7725837513977131cc4da5d67d91c8336e798b708b601821c0ef9b8075b2
+
+PackageName: 291b7725837513977131cc4da5d67d91c8336e798b708b601821c0ef9b8075b2
+SPDXID: SPDXRef-e2c59b7ca7
+PackageFileName: 291b7725837513977131cc4da5d67d91c8336e798b708b601821c0ef9b8075b2
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageChecksum: SHA256: e2c59b7ca7372f31875d49c7da168eb20616a8160a797c93383b08ef93c1b60e
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: NOASSERTION
+PackageCopyrightText: NOASSERTION
+PackageComment: <text>
+Layer 6:
+	info: Layer created by commands: /bin/sh -c #(nop) COPY file:d3da54d1113cef5d9b7e4f5ce523772f9f2c5d0fa67f97c0363cb496828b8e15 in ./ 
+	warning: Unknown content. Additional analysis may be required.
+	info: Retrieved package metadata using apk default method. 
+
+
+</text>
+
+##### Package: e8fb15411045227e77d3406fc2f97ab5e9f2ab0509c064e522d13a86d04fc2d4
+
+PackageName: e8fb15411045227e77d3406fc2f97ab5e9f2ab0509c064e522d13a86d04fc2d4
+SPDXID: SPDXRef-eba3a3b945
+PackageFileName: e8fb15411045227e77d3406fc2f97ab5e9f2ab0509c064e522d13a86d04fc2d4
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageChecksum: SHA256: eba3a3b94524961329c96f29a77a1b1b2958bca4bc80893ac850df4e87ca89df
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: NOASSERTION
+PackageCopyrightText: NOASSERTION
+PackageComment: <text>
+Layer 4:
+	info: Layer created by commands: /bin/sh -c addgroup -S app && adduser -S -g app app
+	warning: 
+Unrecognized Commands:addgroup -S app
+adduser -S -g app app
+
+	info: Retrieved package metadata using apk default method. 
+
+
+</text>
+
+##### Package: 20865485d0c29c60999b40912e8fd4a909d853893fb6a7e2acfb0007bf35fb87
+
+PackageName: 20865485d0c29c60999b40912e8fd4a909d853893fb6a7e2acfb0007bf35fb87
+SPDXID: SPDXRef-f846841ed4
+PackageFileName: 20865485d0c29c60999b40912e8fd4a909d853893fb6a7e2acfb0007bf35fb87
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageChecksum: SHA256: f846841ed47f33db5eda54403fbe124a4907dab3ac019b7b73e6192bc4152b4f
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: NOASSERTION
+PackageCopyrightText: NOASSERTION
+PackageComment: <text>
+Layer 3:
+	info: Layer created by commands: /bin/sh -c apk add --no-cache --virtual .build-deps-yarn curl gnupg tar   && for key in     6A010C5166006599AA17F08146C2130DFD2497F5   ; do     gpg --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys "$key" ||     gpg --keyserver hkp://ipv4.pool.sks-keyservers.net --recv-keys "$key" ||     gpg --keyserver hkp://pgp.mit.edu:80 --recv-keys "$key" ;   done   && curl -fSLO --compressed "https://yarnpkg.com/downloads/$YARN_VERSION/yarn-v$YARN_VERSION.tar.gz"   && curl -fSLO --compressed "https://yarnpkg.com/downloads/$YARN_VERSION/yarn-v$YARN_VERSION.tar.gz.asc"   && gpg --batch --verify yarn-v$YARN_VERSION.tar.gz.asc yarn-v$YARN_VERSION.tar.gz   && mkdir -p /opt/yarn   && tar -xzf yarn-v$YARN_VERSION.tar.gz -C /opt/yarn --strip-components=1   && ln -s /opt/yarn/bin/yarn /usr/local/bin/yarn   && ln -s /opt/yarn/bin/yarn /usr/local/bin/yarnpkg   && rm yarn-v$YARN_VERSION.tar.gz.asc yarn-v$YARN_VERSION.tar.gz   && apk del .build-deps-yarn
+	warning: 
+Unrecognized Commands:gpg --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys $key
+gpg --keyserver hkp://ipv4.pool.sks-keyservers.net --recv-keys $key
+gpg --keyserver hkp://pgp.mit.edu:80 --recv-keys $key
+curl -fSLO --compressed https://yarnpkg.com/downloads/$YARN_VERSION/yarn-v$YARN_VERSION.tar.gz
+curl -fSLO --compressed https://yarnpkg.com/downloads/$YARN_VERSION/yarn-v$YARN_VERSION.tar.gz.asc
+gpg --batch --verify yarn-v$YARN_VERSION.tar.gz.asc yarn-v$YARN_VERSION.tar.gz
+mkdir -p /opt/yarn
+tar -xzf yarn-v$YARN_VERSION.tar.gz -C /opt/yarn --strip-components=1
+ln -s /opt/yarn/bin/yarn /usr/local/bin/yarn
+ln -s /opt/yarn/bin/yarn /usr/local/bin/yarnpkg
+rm yarn-v$YARN_VERSION.tar.gz.asc yarn-v$YARN_VERSION.tar.gz
+
+	info: Retrieved package metadata using apk default method. 
+
+
+</text>
+
+##### Package: libc-utils
+
+PackageName: libc-utils
+SPDXID: SPDXRef-libc-utils-0.7.1-r0
+PackageVersion: 0.7.1-r0
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: LicenseRef-f266d93
+PackageCopyrightText: NONE
+PackageComment: <text>
+libc-utils:
+	warning: No metadata for key: copyright
+	warning: No metadata for key: download_url
+	warning: No metadata for key: checksum
+	warning: No metadata for key: pkg_licenses
+	warning: No metadata for key: pkg_format
+	warning: No metadata for key: src_name
+	warning: No metadata for key: src_version
+
+</text>
+
+##### Package: libgcc
+
+PackageName: libgcc
+SPDXID: SPDXRef-libgcc-6.3.0-r4
+PackageVersion: 6.3.0-r4
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: LicenseRef-3a85c06
+PackageCopyrightText: NONE
+PackageComment: <text>
+libgcc:
+	warning: No metadata for key: copyright
+	warning: No metadata for key: download_url
+	warning: No metadata for key: checksum
+	warning: No metadata for key: pkg_licenses
+	warning: No metadata for key: pkg_format
+	warning: No metadata for key: src_name
+	warning: No metadata for key: src_version
+
+</text>
+
+##### Package: libressl2.5-libcrypto
+
+PackageName: libressl2.5-libcrypto
+SPDXID: SPDXRef-libressl2.5-libcrypto-2.5.5-r0
+PackageVersion: 2.5.5-r0
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: LicenseRef-df8cb33
+PackageCopyrightText: NONE
+PackageComment: <text>
+libressl2.5-libcrypto:
+	warning: No metadata for key: copyright
+	warning: No metadata for key: download_url
+	warning: No metadata for key: checksum
+	warning: No metadata for key: pkg_licenses
+	warning: No metadata for key: pkg_format
+	warning: No metadata for key: src_name
+	warning: No metadata for key: src_version
+
+</text>
+
+##### Package: libressl2.5-libssl
+
+PackageName: libressl2.5-libssl
+SPDXID: SPDXRef-libressl2.5-libssl-2.5.5-r0
+PackageVersion: 2.5.5-r0
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: LicenseRef-df8cb33
+PackageCopyrightText: NONE
+PackageComment: <text>
+libressl2.5-libssl:
+	warning: No metadata for key: copyright
+	warning: No metadata for key: download_url
+	warning: No metadata for key: checksum
+	warning: No metadata for key: pkg_licenses
+	warning: No metadata for key: pkg_format
+	warning: No metadata for key: src_name
+	warning: No metadata for key: src_version
+
+</text>
+
+##### Package: libstdc++
+
+PackageName: libstdc++
+SPDXID: SPDXRef-libstdc---6.3.0-r4
+PackageVersion: 6.3.0-r4
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: LicenseRef-3a85c06
+PackageCopyrightText: NONE
+PackageComment: <text>
+libstdc++:
+	warning: No metadata for key: copyright
+	warning: No metadata for key: download_url
+	warning: No metadata for key: checksum
+	warning: No metadata for key: pkg_licenses
+	warning: No metadata for key: pkg_format
+	warning: No metadata for key: src_name
+	warning: No metadata for key: src_version
+
+</text>
+
+##### Package: musl
+
+PackageName: musl
+SPDXID: SPDXRef-musl-1.1.16-r14
+PackageVersion: 1.1.16-r14
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: LicenseRef-c7ea3b7
+PackageCopyrightText: NONE
+PackageComment: <text>
+musl:
+	warning: No metadata for key: copyright
+	warning: No metadata for key: download_url
+	warning: No metadata for key: checksum
+	warning: No metadata for key: pkg_licenses
+	warning: No metadata for key: pkg_format
+	warning: No metadata for key: src_name
+	warning: No metadata for key: src_version
+
+</text>
+
+##### Package: musl-utils
+
+PackageName: musl-utils
+SPDXID: SPDXRef-musl-utils-1.1.16-r14
+PackageVersion: 1.1.16-r14
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: LicenseRef-d312664
+PackageCopyrightText: NONE
+PackageComment: <text>
+musl-utils:
+	warning: No metadata for key: copyright
+	warning: No metadata for key: download_url
+	warning: No metadata for key: checksum
+	warning: No metadata for key: pkg_licenses
+	warning: No metadata for key: pkg_format
+	warning: No metadata for key: src_name
+	warning: No metadata for key: src_version
+
+</text>
+
+##### Package: scanelf
+
+PackageName: scanelf
+SPDXID: SPDXRef-scanelf-1.2.2-r0
+PackageVersion: 1.2.2-r0
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: LicenseRef-c467809
+PackageCopyrightText: NONE
+PackageComment: <text>
+scanelf:
+	warning: No metadata for key: copyright
+	warning: No metadata for key: download_url
+	warning: No metadata for key: checksum
+	warning: No metadata for key: pkg_licenses
+	warning: No metadata for key: pkg_format
+	warning: No metadata for key: src_name
+	warning: No metadata for key: src_version
+
+</text>
+
+##### Package: zlib
+
+PackageName: zlib
+SPDXID: SPDXRef-zlib-1.2.11-r0
+PackageVersion: 1.2.11-r0
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: LicenseRef-051b5e2
+PackageCopyrightText: NONE
+PackageComment: <text>
+zlib:
+	warning: No metadata for key: copyright
+	warning: No metadata for key: download_url
+	warning: No metadata for key: checksum
+	warning: No metadata for key: pkg_licenses
+	warning: No metadata for key: pkg_format
+	warning: No metadata for key: src_name
+	warning: No metadata for key: src_version
+
+</text>
+
+##### Other Licenses
+
+LicenseID: LicenseRef-c7ea3b7
+ExtractedText: Original license: MIT
+
+LicenseID: LicenseRef-f266d93
+ExtractedText: Original license: BSD
+
+LicenseID: LicenseRef-0ab4d9b
+ExtractedText: Original license: MPL 2.0 GPL2+
+
+LicenseID: LicenseRef-d312664
+ExtractedText: Original license: MIT BSD GPL2+
+
+LicenseID: LicenseRef-df8cb33
+ExtractedText: Original license: custom
+
+LicenseID: LicenseRef-051b5e2
+ExtractedText: Original license: zlib
+
+LicenseID: LicenseRef-c467809
+ExtractedText: Original license: GPL2
+
+LicenseID: LicenseRef-3a85c06
+ExtractedText: Original license: GPL LGPL
+
+##### Relationships
+
+Relationship: SPDXRef-docwareiy-test1-latest CONTAINS SPDXRef-9dfa40a0da
+Relationship: SPDXRef-docwareiy-test1-latest CONTAINS SPDXRef-0198944a98
+Relationship: SPDXRef-docwareiy-test1-latest CONTAINS SPDXRef-f846841ed4
+Relationship: SPDXRef-docwareiy-test1-latest CONTAINS SPDXRef-eba3a3b945
+Relationship: SPDXRef-docwareiy-test1-latest CONTAINS SPDXRef-40d9b405a0
+Relationship: SPDXRef-docwareiy-test1-latest CONTAINS SPDXRef-e2c59b7ca7
+Relationship: SPDXRef-docwareiy-test1-latest CONTAINS SPDXRef-a9907994ea
+Relationship: SPDXRef-docwareiy-test1-latest CONTAINS SPDXRef-15f71623fd
+Relationship: SPDXRef-docwareiy-test1-latest CONTAINS SPDXRef-43a72a735a
+Relationship: SPDXRef-docwareiy-test1-latest CONTAINS SPDXRef-b2fe6dd838
+Relationship: SPDXRef-docwareiy-test1-latest CONTAINS SPDXRef-35b0e956b3
+Relationship: SPDXRef-docwareiy-test1-latest CONTAINS SPDXRef-a0ff854922
+Relationship: SPDXRef-docwareiy-test1-latest CONTAINS SPDXRef-a1277d4358
+Relationship: SPDXRef-9dfa40a0da CONTAINS SPDXRef-musl-1.1.16-r14
+Relationship: SPDXRef-9dfa40a0da CONTAINS SPDXRef-busybox-1.26.2-r9
+Relationship: SPDXRef-9dfa40a0da CONTAINS SPDXRef-alpine-baselayout-3.0.4-r0
+Relationship: SPDXRef-9dfa40a0da CONTAINS SPDXRef-alpine-keys-2.1-r1
+Relationship: SPDXRef-9dfa40a0da CONTAINS SPDXRef-libressl2.5-libcrypto-2.5.5-r0
+Relationship: SPDXRef-9dfa40a0da CONTAINS SPDXRef-libressl2.5-libssl-2.5.5-r0
+Relationship: SPDXRef-9dfa40a0da CONTAINS SPDXRef-zlib-1.2.11-r0
+Relationship: SPDXRef-9dfa40a0da CONTAINS SPDXRef-apk-tools-2.7.5-r0
+Relationship: SPDXRef-9dfa40a0da CONTAINS SPDXRef-scanelf-1.2.2-r0
+Relationship: SPDXRef-9dfa40a0da CONTAINS SPDXRef-musl-utils-1.1.16-r14
+Relationship: SPDXRef-9dfa40a0da CONTAINS SPDXRef-libc-utils-0.7.1-r0
+Relationship: SPDXRef-0198944a98 HAS_PREREQUISITE SPDXRef-9dfa40a0da
+Relationship: SPDXRef-0198944a98 CONTAINS SPDXRef-libgcc-6.3.0-r4
+Relationship: SPDXRef-0198944a98 CONTAINS SPDXRef-libstdc---6.3.0-r4
+Relationship: SPDXRef-f846841ed4 HAS_PREREQUISITE SPDXRef-0198944a98
+Relationship: SPDXRef-eba3a3b945 HAS_PREREQUISITE SPDXRef-f846841ed4
+Relationship: SPDXRef-40d9b405a0 HAS_PREREQUISITE SPDXRef-eba3a3b945
+Relationship: SPDXRef-40d9b405a0 CONTAINS SPDXRef-ca-certificates-20161130-r2
+Relationship: SPDXRef-e2c59b7ca7 HAS_PREREQUISITE SPDXRef-40d9b405a0
+Relationship: SPDXRef-a9907994ea HAS_PREREQUISITE SPDXRef-e2c59b7ca7
+Relationship: SPDXRef-15f71623fd HAS_PREREQUISITE SPDXRef-a9907994ea
+Relationship: SPDXRef-43a72a735a HAS_PREREQUISITE SPDXRef-15f71623fd
+Relationship: SPDXRef-43a72a735a CONTAINS SPDXRef-musl-1.1.16-r14
+Relationship: SPDXRef-43a72a735a CONTAINS SPDXRef-busybox-1.26.2-r9
+Relationship: SPDXRef-43a72a735a CONTAINS SPDXRef-alpine-baselayout-3.0.4-r0
+Relationship: SPDXRef-43a72a735a CONTAINS SPDXRef-alpine-keys-2.1-r1
+Relationship: SPDXRef-43a72a735a CONTAINS SPDXRef-libressl2.5-libcrypto-2.5.5-r0
+Relationship: SPDXRef-43a72a735a CONTAINS SPDXRef-libressl2.5-libssl-2.5.5-r0
+Relationship: SPDXRef-43a72a735a CONTAINS SPDXRef-zlib-1.2.11-r0
+Relationship: SPDXRef-43a72a735a CONTAINS SPDXRef-apk-tools-2.7.5-r0
+Relationship: SPDXRef-43a72a735a CONTAINS SPDXRef-scanelf-1.2.2-r0
+Relationship: SPDXRef-43a72a735a CONTAINS SPDXRef-musl-utils-1.1.16-r14
+Relationship: SPDXRef-43a72a735a CONTAINS SPDXRef-libgcc-6.3.0-r4
+Relationship: SPDXRef-43a72a735a CONTAINS SPDXRef-libstdc---6.3.0-r4
+Relationship: SPDXRef-43a72a735a CONTAINS SPDXRef-ca-certificates-20161130-r2
+Relationship: SPDXRef-b2fe6dd838 HAS_PREREQUISITE SPDXRef-43a72a735a
+Relationship: SPDXRef-35b0e956b3 HAS_PREREQUISITE SPDXRef-b2fe6dd838
+Relationship: SPDXRef-a0ff854922 HAS_PREREQUISITE SPDXRef-35b0e956b3
+Relationship: SPDXRef-a1277d4358 HAS_PREREQUISITE SPDXRef-a0ff854922
+
