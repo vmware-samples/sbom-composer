@@ -17,9 +17,9 @@ var (
 )
 
 func init() {
-	composeCommand.Flags().StringVar(&dir, "dir", "d", "Folder with micro SBOMs")
+	composeCommand.Flags().StringVarP(&dir, "dir", "d", "spdx", "Folder with micro SBOMs")
 	composeCommand.Flags().StringVarP(&save, "save", "s", "composed.sdpx", "Save composed data to")
-	composeCommand.Flags().StringVarP(&config, "conf", "c", "../config/example_config.yaml", "Configuration for the composed document")
+	composeCommand.Flags().StringVarP(&config, "conf", "c", "config.yaml", "Configuration for the composed document")
 }
 
 var composeCommand = &cobra.Command{
