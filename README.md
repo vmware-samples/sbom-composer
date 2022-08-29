@@ -19,12 +19,26 @@ sbom-composer is a tool that serves for composing two or more micro SBOMs into a
 
 ### Testing changes
 
-Run your local changes with
+Run your local changes with:
 ```
 cd cli/
 go run sbom_compose.go -d <path-to-dir-with-spdx-files-to-compose> [flags]
 ```
-  
+
+If testing local changes to some of the sbom-composer's packages, e.g. the `parser`, modify `cli/sbom_compose.go` imports:
+```
+// "github.com/vmware-samples/sbom-composer/parser"
+"sbom-composer/parser"
+```
+and `cli/go.mod` with:
+```
+replace sbom-composer/parser => ../parser
+```
+Then run:
+```
+cd cli
+go mod tidy
+```
 ## Documentation
 
 To be added.
