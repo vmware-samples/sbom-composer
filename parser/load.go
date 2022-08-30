@@ -6,7 +6,9 @@ package parser
 import (
 	"fmt"
 	"os"
+	"strings"
 
+	spdx_json "github.com/spdx/tools-golang/json"
 	"github.com/spdx/tools-golang/spdxlib"
 	"github.com/spdx/tools-golang/tvloader"
 )
@@ -21,14 +23,21 @@ func LoadFile(file string) *Document {
 
 	res := &Document{}
 
-	doc, err := tvloader.Load2_2(r)
+	doc := &Document{}
+
+	if isJSON(file) {
+		doc.SPDXDocRef, err = spdx_json.Load2_2(r)
+	} else {
+		doc.SPDXDocRef, err = tvloader.Load2_2(r)
+	}
+
 	if err != nil {
-		fmt.Printf("error parsing %v: %v", file, err)
+		fmt.Printf("error parsing %v: %v\n", file, err)
 		return nil
 	}
 
 	// verify if the SPDX file describes at least one package
-	pkgIDs, err := spdxlib.GetDescribedPackageIDs2_2(doc)
+	pkgIDs, err := spdxlib.GetDescribedPackageIDs2_2(doc.SPDXDocRef)
 	if err != nil {
 		fmt.Printf("couldn't find package description in the SPDX document: %v\n", err)
 		return nil
@@ -38,7 +47,7 @@ func LoadFile(file string) *Document {
 		return nil
 	}
 
-	res.SPDXDocRef = doc
+	res.SPDXDocRef = doc.SPDXDocRef
 
 	return res
 }
@@ -53,8 +62,11 @@ func LoadAll(dir string) []*Document {
 	var loaded []*Document
 
 	for _, doc := range allSBOMs {
-		fmt.Println(doc)
 		loaded = append(loaded, LoadFile(dir+"/"+doc))
 	}
 	return loaded
+}
+
+func isJSON(file string) bool {
+	return strings.HasSuffix(file, ".json")
 }

@@ -33,7 +33,9 @@ func Save(doc *Document, composableDocs []*Document, output string) error {
 	}
 
 	for _, cdoc := range composableDocs {
-		RenderComposableDocument(cdoc, w)
+		if cdoc != nil {
+			RenderComposableDocument(cdoc, w)
+		}
 	}
 	return nil
 }
@@ -91,7 +93,7 @@ func updateRelationships(doc *Document, composableDocs []*Document) (*Document, 
 			fmt.Sprintf("%s-%s", doc.ConfigDataRef.PackageName, doc.ConfigDataRef.PackageVersion))
 	}
 	for _, cdoc := range composableDocs {
-		if len(cdoc.SPDXDocRef.Packages) > 0 {
+		if cdoc != nil && len(cdoc.SPDXDocRef.Packages) > 0 {
 			elId := spdx.MakeDocElementID("",
 				fmt.Sprintf("%s-%s", cdoc.SPDXDocRef.Packages[0].PackageName, cdoc.SPDXDocRef.Packages[0].PackageVersion))
 			newRelationship := &spdx.Relationship2_2{
@@ -101,7 +103,7 @@ func updateRelationships(doc *Document, composableDocs []*Document) (*Document, 
 			}
 			doc.SPDXDocRef.Relationships = append(doc.SPDXDocRef.Relationships, newRelationship)
 		}
-		if len(cdoc.SPDXDocRef.Relationships) > 0 {
+		if cdoc != nil && len(cdoc.SPDXDocRef.Relationships) > 0 {
 			cdoc.SPDXDocRef.Relationships = cdoc.SPDXDocRef.Relationships[1:]
 		}
 	}

@@ -56,7 +56,7 @@ packageComment: "<text>somecomment</text>"`)
 		}
 
 		loadedConfig := createConfig(input)
-		doc, err := Build("../example_data/micro_sboms", loadedConfig)
+		doc, err := Build("../example_data/micro_sboms/tag_value", loadedConfig)
 		assert.Equal(t, nil, err)
 
 		assert.Equal(t, want.SPDXDocRef.SPDXVersion, doc.SPDXDocRef.SPDXVersion)
