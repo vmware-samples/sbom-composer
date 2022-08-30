@@ -6,6 +6,7 @@ package parser
 import (
 	"io/ioutil"
 	"log"
+	"strings"
 )
 
 func readDir(dir string) []string {
@@ -19,4 +20,15 @@ func readDir(dir string) []string {
 		res = append(res, f.Name())
 	}
 	return res
+}
+
+func isJSON(file string) bool {
+	return strings.HasSuffix(file, ".json")
+}
+
+func updateFileExtension(file string, outFormat string) string {
+	if outFormat == "json" && !isJSON(file) {
+		file = file + ".json"
+	}
+	return file
 }

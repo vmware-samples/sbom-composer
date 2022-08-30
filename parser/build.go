@@ -28,7 +28,7 @@ func Build(dirRoot string, conf *Config) (*Document, error) {
 	return doc, nil
 }
 
-func GenerateComposedDoc(dirRoot string, output string, confFile string) error {
+func GenerateComposedDoc(dirRoot string, output string, outFormat string, confFile string) error {
 	conf := LoadConfig(confFile)
 
 	doc, err := Build(dirRoot, conf)
@@ -38,7 +38,7 @@ func GenerateComposedDoc(dirRoot string, output string, confFile string) error {
 
 	composableDocs := LoadAll(dirRoot)
 
-	err = Save(doc, composableDocs, output)
+	err = Save(doc, composableDocs, output, outFormat)
 	if err != nil {
 		fmt.Printf("failed to save composed document %v: %v", output, err)
 		return err

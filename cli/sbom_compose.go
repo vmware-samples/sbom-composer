@@ -14,12 +14,14 @@ var (
 	dir    string
 	save   string
 	config string
+	out    string
 )
 
 func init() {
 	composeCommand.Flags().StringVarP(&dir, "dir", "d", "spdx", "Folder with micro SBOMs")
-	composeCommand.Flags().StringVarP(&save, "save", "s", "composed.sdpx", "Save composed data to")
+	composeCommand.Flags().StringVarP(&save, "save", "s", "composed.spdx", "Save composed data to")
 	composeCommand.Flags().StringVarP(&config, "conf", "c", "config.yaml", "Configuration for the composed document")
+	composeCommand.Flags().StringVarP(&out, "out", "o", "tv", "Output format of the composed document")
 }
 
 var composeCommand = &cobra.Command{
@@ -38,7 +40,7 @@ func runSBOMCompose(cmd *cobra.Command, args []string) error {
 	}
 
 	if len(save) > 0 {
-		parser.GenerateComposedDoc(dir, save, config)
+		parser.GenerateComposedDoc(dir, save, out, config)
 	}
 	return nil
 }

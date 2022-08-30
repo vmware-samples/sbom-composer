@@ -8,11 +8,15 @@ import (
 	"io"
 	"os"
 
+	spdx_json "github.com/spdx/tools-golang/json"
 	"github.com/spdx/tools-golang/spdx"
 	"github.com/spdx/tools-golang/tvsaver"
 )
 
-func Save(doc *Document, composableDocs []*Document, output string) error {
+func Save(doc *Document, composableDocs []*Document, output string, outFormat string) error {
+
+	output = updateFileExtension(output, outFormat)
+
 	w, err := os.Create(output)
 	if err != nil {
 		fmt.Printf("error while opening %v for writing: %v\n", output, err)
@@ -26,50 +30,40 @@ func Save(doc *Document, composableDocs []*Document, output string) error {
 
 	updateRelationships(doc, composableDocs)
 
-	err = tvsaver.Save2_2(doc.SPDXDocRef, w)
-	if err != nil {
-		fmt.Printf("error while saving %v: %v", output, err)
-		return err
-	}
-
 	for _, cdoc := range composableDocs {
 		if cdoc != nil {
-			RenderComposableDocument(cdoc, w)
+			AppendComposableDocument(doc, cdoc, w, outFormat)
 		}
+	}
+
+	switch outFormat {
+	case "tv":
+		err = tvsaver.Save2_2(doc.SPDXDocRef, w)
+	case "json":
+		err = spdx_json.Save2_2(doc.SPDXDocRef, w)
+	default:
+		fmt.Printf("warn: %s is not proper output format; saving to default\n", outFormat)
+		err = tvsaver.Save2_2(doc.SPDXDocRef, w)
+	}
+	if err != nil {
+		fmt.Printf("error while saving %v: %v\n", output, err)
+		return err
 	}
 	return nil
 }
 
 // RenderComposableDocument processes a composable document
 // and renders it to the composed document
-func RenderComposableDocument(doc *Document, w io.Writer) error {
+func AppendComposableDocument(res *Document, cdoc *Document, w io.Writer, outFormat string) {
 
-	// Merged documents should not contain any head data. It's
-	// only generated for the composed document
-	doc = cleanDocumentHeadData(doc)
-
-	err := tvsaver.Save2_2(doc.SPDXDocRef, w)
-	if err != nil {
-		fmt.Printf("error while saving doc %v: %v", doc, err)
-		return err
-	}
-
-	return nil
-}
-
-func cleanDocumentHeadData(doc *Document) *Document {
-	doc.SPDXDocRef.SPDXVersion = ""
-	doc.SPDXDocRef.DataLicense = ""
-	doc.SPDXDocRef.SPDXIdentifier = ""
-	doc.SPDXDocRef.DocumentName = ""
-	doc.SPDXDocRef.DocumentNamespace = ""
-	doc.SPDXDocRef.DocumentComment = ""
-	doc.SPDXDocRef.CreationInfo.LicenseListVersion = ""
-	doc.SPDXDocRef.CreationInfo.Creators = []spdx.Creator{}
-	doc.SPDXDocRef.CreationInfo.CreatorComment = ""
-	doc.SPDXDocRef.CreationInfo.Created = ""
-
-	return doc
+	res.SPDXDocRef.Annotations = append(res.SPDXDocRef.Annotations, cdoc.SPDXDocRef.Annotations...)
+	res.SPDXDocRef.ExternalDocumentReferences = append(res.SPDXDocRef.ExternalDocumentReferences, cdoc.SPDXDocRef.ExternalDocumentReferences...)
+	res.SPDXDocRef.Files = append(res.SPDXDocRef.Files, cdoc.SPDXDocRef.Files...)
+	res.SPDXDocRef.OtherLicenses = append(res.SPDXDocRef.OtherLicenses, cdoc.SPDXDocRef.OtherLicenses...)
+	res.SPDXDocRef.Packages = append(res.SPDXDocRef.Packages, cdoc.SPDXDocRef.Packages...)
+	res.SPDXDocRef.Relationships = append(res.SPDXDocRef.Relationships, cdoc.SPDXDocRef.Relationships...)
+	res.SPDXDocRef.Reviews = append(res.SPDXDocRef.Reviews, cdoc.SPDXDocRef.Reviews...)
+	res.SPDXDocRef.Snippets = append(res.SPDXDocRef.Snippets, cdoc.SPDXDocRef.Snippets...)
 }
 
 func cleanDocumentFileData(doc *Document) *Document {

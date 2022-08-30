@@ -16,6 +16,7 @@ sbom-composer is a tool that serves for composing two or more micro SBOMs into a
     - `-d`, `--dir`: Folder with micro SBOMs in SPDX format
     - `-s`, `--save`: Saves composed SBOM to a given file. `composed.spdx` by default
     - `-c`, `--conf`: Configuration for the composed document. `sbom-composer/config/example_config.yaml` by default
+    - `-o`, `--out`: Output format of the composed document: `tv` or `json`. `tv` by default
 
 ### Testing changes
 

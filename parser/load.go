@@ -6,7 +6,6 @@ package parser
 import (
 	"fmt"
 	"os"
-	"strings"
 
 	spdx_json "github.com/spdx/tools-golang/json"
 	"github.com/spdx/tools-golang/spdxlib"
@@ -65,8 +64,4 @@ func LoadAll(dir string) []*Document {
 		loaded = append(loaded, LoadFile(dir+"/"+doc))
 	}
 	return loaded
-}
-
-func isJSON(file string) bool {
-	return strings.HasSuffix(file, ".json")
 }
