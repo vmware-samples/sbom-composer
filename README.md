@@ -9,7 +9,7 @@ sbom-composer is a tool that serves for composing two or more micro SBOMs into a
 
 1. `cd cli/`
 2. `go build`
-3. `./compose -d <path-to-dir-with-spdx-files-to-compose> [flags]`
+3. `./sbomcompose -d <path-to-dir-with-spdx-files-to-compose> [flags]`
 
 
 * `flags`:

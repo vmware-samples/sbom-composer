@@ -36,7 +36,7 @@ func init() {
 }
 
 var composeCommand = &cobra.Command{
-	Use:     "compose",
+	Use:     "sbomcompose",
 	Short:   "Compose micro SBOM documents",
 	Long:    "TDB",
 	Example: "TDB",

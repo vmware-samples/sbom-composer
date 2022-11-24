@@ -7,8 +7,8 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
-	"strings"
 	"os"
+	"strings"
 
 	"github.com/spdx/tools-golang/builder"
 	"gopkg.in/yaml.v3"
@@ -104,7 +104,7 @@ func readConfFile(file string) []byte {
 	conf, err := ioutil.ReadFile(file)
 
 	if err != nil {
-		fmt.Println("Error: failed reading yaml file. SPDX document not generated.\n")
+		fmt.Println("error: failed reading yaml file. SPDX document not generated.", err)
 		os.Exit(1)
 	}
 	return conf

@@ -1,4 +1,4 @@
-module github.com/vmware-samples/sbom-composer/compose
+module github.com/vmware-samples/sbom-composer/sbomcompose
 
 go 1.16
 
