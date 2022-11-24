@@ -1,16 +1,16 @@
-# sbom-compose Governance
+# sbom-composer Governance
 
-This document defines the project governance for sbom-compose.
+This document defines the project governance for sbom-composer.
 
 ## Overview
 
-**sbom-compose**, an open source project, is committed to building an open, inclusive, productive and self-governing open source community focused on building a high-quality and high performance container inspection tool. The community is governed by this document with the goal of defining how community should work together to achieve this goal.
+**sbom-composer**, an open source project, is committed to building an open, inclusive, productive and self-governing open source community focused on building a high-quality and high performance container inspection tool. The community is governed by this document with the goal of defining how community should work together to achieve this goal.
 
 ## Community Roles
 
-* **Users:** Members that engage with the sbom-compose community via any medium (Slack, GitHub, mailing lists, etc.).
+* **Users:** Members that engage with the sbom-composer community via any medium (Slack, GitHub, mailing lists, etc.).
 * **Contributors:** Regular contributions to projects (documentation, code reviews, responding to issues, participation in proposal discussions, contributing code, etc.). 
-* **Maintainers**: The sbom-compose project leaders. They are responsible for the overall health and direction of the project; final reviewers of PRs and responsible for releases. Maintainers are expected to contribute code and documentation, review PRs including ensuring quality of code, triage issues, proactively fix bugs, and perform maintenance tasks for sbom-compose.
+* **Maintainers**: The sbom-composer project leaders. They are responsible for the overall health and direction of the project; final reviewers of PRs and responsible for releases. Maintainers are expected to contribute code and documentation, review PRs including ensuring quality of code, triage issues, proactively fix bugs, and perform maintenance tasks for sbom-composer.
 
 ### Maintainers
 
@@ -22,7 +22,7 @@ Ideally, all project decisions are resolved by consensus. If impossible, any mai
 
 ## Proposal Process
 
-One of the most important aspects in any open source community is the concept of proposals. Large changes to the codebase and / or new features should be preceded by a proposal in the sbom-compose repo via issue. This process allows for all members of the community to weigh in on the concept (including the technical details), share their comments and ideas, and offer to help. It also ensures that members are not duplicating work or inadvertently stepping on toes by making large conflicting changes.
+One of the most important aspects in any open source community is the concept of proposals. Large changes to the codebase and / or new features should be preceded by a proposal in the sbom-composer repo via issue. This process allows for all members of the community to weigh in on the concept (including the technical details), share their comments and ideas, and offer to help. It also ensures that members are not duplicating work or inadvertently stepping on toes by making large conflicting changes.
 
 The project roadmap is defined by accepted proposals.
 
@@ -31,12 +31,12 @@ Proposals should cover the high-level objectives, use cases, and technical recom
 
 ## Lazy Consensus
 
-To maintain velocity in the sbom-compose project, the concept of [Lazy Consensus](http://en.osswiki.info/concepts/lazy_consensus) is practiced. Lazy Consensus is practiced for all projects and decisions in the `vmware-samples` org.
+To maintain velocity in the sbom-composer project, the concept of [Lazy Consensus](http://en.osswiki.info/concepts/lazy_consensus) is practiced. Lazy Consensus is practiced for all projects and decisions in the `vmware-samples` org.
 
 Lazy consensus does _not_ apply to the process of:
-* Removal of maintainers from sbom-compose
+* Removal of maintainers from sbom-composer
 * Governance changes
-* Adding new maintainers to sbom-compose
+* Adding new maintainers to sbom-composerr
 
 For the above mentioned processes, consensus between @rnjudge and @nishakm is required until there are enough maintainers for a supermajority vote.
 

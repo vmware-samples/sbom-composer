@@ -1,6 +1,6 @@
-# Tern Maintainers
+# SBOM Composer Maintainers
 
-[GOVERNANCE.md](https://github.com/tern-tools/tern/blob/main/GOVERNANCE.md)
+[GOVERNANCE.md](https://github.com/vmware-samples/sbom-composer/blob/main/GOVERNANCE.md)
 describes governance guidelines and maintainer responsibilities.
 
 ## Maintainers
