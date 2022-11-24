@@ -57,11 +57,37 @@ func Save(doc *Document, composableDocs []*Document, output string, outFormat st
 func AppendComposableDocument(res *Document, cdoc *Document, w io.Writer, outFormat string) {
 
 	res.SPDXDocRef.Annotations = append(res.SPDXDocRef.Annotations, cdoc.SPDXDocRef.Annotations...)
-	res.SPDXDocRef.ExternalDocumentReferences = append(res.SPDXDocRef.ExternalDocumentReferences, cdoc.SPDXDocRef.ExternalDocumentReferences...)
-	res.SPDXDocRef.Files = append(res.SPDXDocRef.Files, cdoc.SPDXDocRef.Files...)
-	res.SPDXDocRef.OtherLicenses = append(res.SPDXDocRef.OtherLicenses, cdoc.SPDXDocRef.OtherLicenses...)
-	res.SPDXDocRef.Packages = append(res.SPDXDocRef.Packages, cdoc.SPDXDocRef.Packages...)
-	res.SPDXDocRef.Relationships = append(res.SPDXDocRef.Relationships, cdoc.SPDXDocRef.Relationships...)
+
+	for _, e := range cdoc.SPDXDocRef.ExternalDocumentReferences {
+		if isNotDuplicate(e.Checksum.Value, res, EDR) {
+			res.SPDXDocRef.ExternalDocumentReferences = append(res.SPDXDocRef.ExternalDocumentReferences, e)
+		}
+	}
+	for _, f := range cdoc.SPDXDocRef.Files {
+		if areNotIdenticalChecksums(f.Checksums, res, FL) {
+			res.SPDXDocRef.Files = append(res.SPDXDocRef.Files, f)
+		}
+	}
+	for _, ol := range cdoc.SPDXDocRef.OtherLicenses {
+		if isNotDuplicate(ol.LicenseIdentifier, res, OL) {
+			res.SPDXDocRef.OtherLicenses = append(res.SPDXDocRef.OtherLicenses, ol)
+		}
+	}
+	for _, p := range cdoc.SPDXDocRef.Packages {
+		if areNotIdenticalChecksums(p.PackageChecksums, res, PKG) {
+			res.SPDXDocRef.Packages = append(res.SPDXDocRef.Packages, p)
+		}
+	}
+	for _, r := range cdoc.SPDXDocRef.Relationships {
+		relStr := fmt.Sprintf("%s_%s_%s_%s_%s_%s_%s_%s",
+			r.RefA.DocumentRefID, r.RefA.ElementRefID, r.RefA.SpecialID,
+			r.Relationship,
+			r.RefB.DocumentRefID, r.RefB.ElementRefID, r.RefB.SpecialID,
+			r.RelationshipComment)
+		if isNotDuplicate(relStr, res, RL) {
+			res.SPDXDocRef.Relationships = append(res.SPDXDocRef.Relationships, r)
+		}
+	}
 	res.SPDXDocRef.Reviews = append(res.SPDXDocRef.Reviews, cdoc.SPDXDocRef.Reviews...)
 	res.SPDXDocRef.Snippets = append(res.SPDXDocRef.Snippets, cdoc.SPDXDocRef.Snippets...)
 }
