@@ -29,13 +29,14 @@ packageSupplier: "somesupplier"
 packageComment: "<text>somecomment</text>"`)
 
 		want := Document{
-			SPDXDocRef: &spdx.Document2_2{
-				SPDXVersion:       "SPDX-2.2",
-				DataLicense:       "CC0-1.0",
-				SPDXIdentifier:    "DOCUMENT",
-				DocumentName:      "top-level-artifact",
-				DocumentNamespace: "https://spdx.org/spdxdocs/top-level-artifact-",
-			},
+			SPDXDocRef: &SPDXDocRef{
+				Doc2_2: &spdx.Document2_2{
+					SPDXVersion:       "SPDX-2.2",
+					DataLicense:       "CC0-1.0",
+					SPDXIdentifier:    "DOCUMENT",
+					DocumentName:      "top-level-artifact",
+					DocumentNamespace: "https://spdx.org/spdxdocs/top-level-artifact-",
+				}},
 			ConfigDataRef: &Config{
 				SPDXConfigRef:           SPDXConfigReference,
 				PackageName:             "top-level-artifact",
@@ -56,14 +57,14 @@ packageComment: "<text>somecomment</text>"`)
 		}
 
 		loadedConfig := createConfig(input)
-		doc, err := Build("../example_data/micro_sboms/tag_value", loadedConfig)
+		doc, err := Build(SPDX_VERSION, "../example_data/micro_sboms/tag_value", loadedConfig)
 		assert.Equal(t, nil, err)
 
-		assert.Equal(t, want.SPDXDocRef.SPDXVersion, doc.SPDXDocRef.SPDXVersion)
-		assert.Equal(t, want.SPDXDocRef.DataLicense, doc.SPDXDocRef.DataLicense)
-		assert.Equal(t, want.SPDXDocRef.SPDXIdentifier, doc.SPDXDocRef.SPDXIdentifier)
-		assert.Equal(t, want.SPDXDocRef.DocumentName, doc.SPDXDocRef.DocumentName)
-		assert.Contains(t, doc.SPDXDocRef.DocumentNamespace, want.SPDXDocRef.DocumentNamespace)
+		assert.Equal(t, want.SPDXDocRef.Doc2_2.SPDXVersion, doc.SPDXDocRef.Doc2_2.SPDXVersion)
+		assert.Equal(t, want.SPDXDocRef.Doc2_2.DataLicense, doc.SPDXDocRef.Doc2_2.DataLicense)
+		assert.Equal(t, want.SPDXDocRef.Doc2_2.SPDXIdentifier, doc.SPDXDocRef.Doc2_2.SPDXIdentifier)
+		assert.Equal(t, want.SPDXDocRef.Doc2_2.DocumentName, doc.SPDXDocRef.Doc2_2.DocumentName)
+		assert.Contains(t, doc.SPDXDocRef.Doc2_2.DocumentNamespace, want.SPDXDocRef.Doc2_2.DocumentNamespace)
 		assert.Equal(t, want.ConfigDataRef.DocumentName, doc.ConfigDataRef.DocumentName)
 		assert.Equal(t, want.ConfigDataRef.SPDXID, doc.ConfigDataRef.SPDXID)
 		assert.Equal(t, want.ConfigDataRef.PackageVersion, doc.ConfigDataRef.PackageVersion)

@@ -9,29 +9,31 @@ import (
 	"github.com/spdx/tools-golang/builder"
 )
 
-func Build(dirRoot string, conf *Config) (*Document, error) {
-	spdxDocRef, err := builder.Build2_2(conf.PackageName, dirRoot, conf.SPDXConfigRef)
-	if err != nil {
-		fmt.Printf("error while building spdx document reference for path %v with config %v, %v: %v\n", dirRoot, conf.PackageName, conf.SPDXConfigRef, err)
-	}
+func Build(spdxVersion string, dirRoot string, conf *Config) (*Document, error) {
+	spdxDocRef := BuildVersion(spdxVersion, dirRoot, conf)
 
-	for i := range spdxDocRef.Packages {
-		if spdxDocRef.Packages[i].PackageName == conf.PackageName &&
-			len(spdxDocRef.Packages[i].PackageVersion) == 0 {
-			spdxDocRef.Packages[i].PackageVersion = conf.PackageVersion
+	UpdatePackages(SPDX_VERSION, &spdxDocRef, conf)
+	doc := CreateDocument(&spdxDocRef, conf)
+	return doc, nil
+}
+
+func BuildVersion(spdxVersion string, dirRoot string, conf *Config) SPDXDocRef {
+	res := SPDXDocRef{}
+	switch spdxVersion {
+	case "2.2":
+		var err error
+		res.Doc2_2, err = builder.Build2_2(conf.PackageName, dirRoot, conf.SPDXConfigRef)
+		if err != nil {
+			fmt.Printf("error while building spdx document reference for path %v with config %v, %v: %v\n", dirRoot, conf.PackageName, conf.SPDXConfigRef, err)
 		}
 	}
-	doc := &Document{
-		SPDXDocRef:    spdxDocRef,
-		ConfigDataRef: conf,
-	}
-	return doc, nil
+	return res
 }
 
 func GenerateComposedDoc(dirRoot string, output string, outFormat string, confFile string) error {
 	conf := LoadConfig(confFile)
 
-	doc, err := Build(dirRoot, conf)
+	doc, err := Build(SPDX_VERSION, dirRoot, conf)
 	if err != nil {
 		return err
 	}

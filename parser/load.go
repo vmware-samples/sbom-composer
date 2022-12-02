@@ -22,12 +22,12 @@ func LoadFile(file string) *Document {
 
 	res := &Document{}
 
-	doc := &Document{}
+	doc := CreateDocumentWithSPDXRef()
 
 	if isJSON(file) {
-		doc.SPDXDocRef, err = spdx_json.Load2_2(r)
+		doc.SPDXDocRef.Doc2_2, err = spdx_json.Load2_2(r)
 	} else {
-		doc.SPDXDocRef, err = tvloader.Load2_2(r)
+		doc.SPDXDocRef.Doc2_2, err = tvloader.Load2_2(r)
 	}
 
 	if err != nil {
@@ -36,7 +36,7 @@ func LoadFile(file string) *Document {
 	}
 
 	// verify if the SPDX file describes at least one package
-	pkgIDs, err := spdxlib.GetDescribedPackageIDs2_2(doc.SPDXDocRef)
+	pkgIDs, err := spdxlib.GetDescribedPackageIDs2_2(doc.SPDXDocRef.Doc2_2)
 	if err != nil {
 		fmt.Printf("couldn't find package description in the SPDX document: %v\n", err)
 		return nil

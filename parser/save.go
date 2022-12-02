@@ -13,6 +13,9 @@ import (
 	"github.com/spdx/tools-golang/tvsaver"
 )
 
+// TODO: Make configurable
+var SPDX_VERSION = "2.2"
+
 func Save(doc *Document, composableDocs []*Document, output string, outFormat string) error {
 
 	output = updateFileExtension(output, outFormat)
@@ -26,25 +29,17 @@ func Save(doc *Document, composableDocs []*Document, output string, outFormat st
 
 	// It's not necessary for the composed doc to
 	// contain all merged documents as Files
-	doc = cleanDocumentFileData(doc)
+	doc = cleanDocumentFileData(SPDX_VERSION, doc)
 
-	updateRelationships(doc, composableDocs)
+	updateRelationships(SPDX_VERSION, doc, composableDocs)
 
 	for _, cdoc := range composableDocs {
 		if cdoc != nil {
-			AppendComposableDocument(doc, cdoc, w, outFormat)
+			AppendComposableDocument(SPDX_VERSION, doc, cdoc, w, outFormat)
 		}
 	}
 
-	switch outFormat {
-	case "tv":
-		err = tvsaver.Save2_2(doc.SPDXDocRef, w)
-	case "json":
-		err = spdx_json.Save2_2(doc.SPDXDocRef, w)
-	default:
-		fmt.Printf("warn: %s is not proper output format; saving to default\n", outFormat)
-		err = tvsaver.Save2_2(doc.SPDXDocRef, w)
-	}
+	err = SaveVersion(SPDX_VERSION, outFormat, doc, w)
 	if err != nil {
 		fmt.Printf("error while saving %v: %v\n", output, err)
 		return err
@@ -52,55 +47,92 @@ func Save(doc *Document, composableDocs []*Document, output string, outFormat st
 	return nil
 }
 
-// RenderComposableDocument processes a composable document
-// and renders it to the composed document
-func AppendComposableDocument(res *Document, cdoc *Document, w io.Writer, outFormat string) {
+func SaveVersion(version string, format string, doc *Document, w *os.File) error {
+	switch format {
+	case "tv":
+		if version == "2.2" {
+			return tvsaver.Save2_2(doc.SPDXDocRef.Doc2_2, w)
+		}
+	case "json":
+		if version == "2.2" {
+			return spdx_json.Save2_2(doc.SPDXDocRef.Doc2_2, w)
+		}
+	default:
+		fmt.Printf("warn: %s is not proper output format; saving to default\n", format)
+		if version == "2.2" {
+			return tvsaver.Save2_2(doc.SPDXDocRef.Doc2_2, w)
+		}
+	}
 
-	res.SPDXDocRef.Annotations = append(res.SPDXDocRef.Annotations, cdoc.SPDXDocRef.Annotations...)
-	res.SPDXDocRef.ExternalDocumentReferences = append(res.SPDXDocRef.ExternalDocumentReferences, cdoc.SPDXDocRef.ExternalDocumentReferences...)
-	res.SPDXDocRef.Files = append(res.SPDXDocRef.Files, cdoc.SPDXDocRef.Files...)
-	res.SPDXDocRef.OtherLicenses = append(res.SPDXDocRef.OtherLicenses, cdoc.SPDXDocRef.OtherLicenses...)
-	res.SPDXDocRef.Packages = append(res.SPDXDocRef.Packages, cdoc.SPDXDocRef.Packages...)
-	res.SPDXDocRef.Relationships = append(res.SPDXDocRef.Relationships, cdoc.SPDXDocRef.Relationships...)
-	res.SPDXDocRef.Reviews = append(res.SPDXDocRef.Reviews, cdoc.SPDXDocRef.Reviews...)
-	res.SPDXDocRef.Snippets = append(res.SPDXDocRef.Snippets, cdoc.SPDXDocRef.Snippets...)
+	return nil
 }
 
-func cleanDocumentFileData(doc *Document) *Document {
-	doc.SPDXDocRef.Files = []*spdx.File2_2{}
+// RenderComposableDocument processes a composable document
+// and renders it to the composed document
+func AppendComposableDocument(spdxVersion string, res *Document, cdoc *Document, w io.Writer, outFormat string) {
 
-	for i := range doc.SPDXDocRef.Packages {
-		doc.SPDXDocRef.Packages[i].Files = []*spdx.File2_2{}
+	switch spdxVersion {
+	case "2.2":
+		res.SPDXDocRef.Doc2_2.Annotations = append(res.SPDXDocRef.Doc2_2.Annotations, cdoc.SPDXDocRef.Doc2_2.Annotations...)
+		res.SPDXDocRef.Doc2_2.ExternalDocumentReferences = append(res.SPDXDocRef.Doc2_2.ExternalDocumentReferences, cdoc.SPDXDocRef.Doc2_2.ExternalDocumentReferences...)
+		res.SPDXDocRef.Doc2_2.Files = append(res.SPDXDocRef.Doc2_2.Files, cdoc.SPDXDocRef.Doc2_2.Files...)
+		res.SPDXDocRef.Doc2_2.OtherLicenses = append(res.SPDXDocRef.Doc2_2.OtherLicenses, cdoc.SPDXDocRef.Doc2_2.OtherLicenses...)
+		res.SPDXDocRef.Doc2_2.Packages = append(res.SPDXDocRef.Doc2_2.Packages, cdoc.SPDXDocRef.Doc2_2.Packages...)
+		res.SPDXDocRef.Doc2_2.Relationships = append(res.SPDXDocRef.Doc2_2.Relationships, cdoc.SPDXDocRef.Doc2_2.Relationships...)
+		res.SPDXDocRef.Doc2_2.Reviews = append(res.SPDXDocRef.Doc2_2.Reviews, cdoc.SPDXDocRef.Doc2_2.Reviews...)
+		res.SPDXDocRef.Doc2_2.Snippets = append(res.SPDXDocRef.Doc2_2.Snippets, cdoc.SPDXDocRef.Doc2_2.Snippets...)
+	}
+}
+
+func cleanDocumentFileData(spdxVersion string, doc *Document) *Document {
+	switch spdxVersion {
+	case "2.2":
+		doc.SPDXDocRef.Doc2_2.Files = []*spdx.File2_2{}
+
+		for i := range doc.SPDXDocRef.Doc2_2.Packages {
+			doc.SPDXDocRef.Doc2_2.Packages[i].Files = []*spdx.File2_2{}
+		}
 	}
 
 	return doc
 }
 
-func updateRelationships(doc *Document, composableDocs []*Document) (*Document, []*Document) {
+func updateRelationships(spdxVersion string, doc *Document, composableDocs []*Document) (*Document, []*Document) {
 
-	rootDocElID := spdx.DocElementID{}
-	if len(doc.SPDXDocRef.Packages) > 0 {
-		rootDocElID = spdx.MakeDocElementID("",
-			fmt.Sprintf("%s-%s", doc.SPDXDocRef.Packages[0].PackageName, doc.SPDXDocRef.Packages[0].PackageVersion))
-	} else {
-		rootDocElID = spdx.MakeDocElementID("",
-			fmt.Sprintf("%s-%s", doc.ConfigDataRef.PackageName, doc.ConfigDataRef.PackageVersion))
-	}
+	rootDocElID := setDocElID(spdxVersion, doc)
 	for _, cdoc := range composableDocs {
-		if cdoc != nil && len(cdoc.SPDXDocRef.Packages) > 0 {
-			elId := spdx.MakeDocElementID("",
-				fmt.Sprintf("%s-%s", cdoc.SPDXDocRef.Packages[0].PackageName, cdoc.SPDXDocRef.Packages[0].PackageVersion))
-			newRelationship := &spdx.Relationship2_2{
-				RefA:         rootDocElID,
-				RefB:         elId,
-				Relationship: "DESCRIBES",
+		switch spdxVersion {
+		case "2.2":
+			if cdoc != nil && len(cdoc.SPDXDocRef.Doc2_2.Packages) > 0 {
+				elId := spdx.MakeDocElementID("",
+					fmt.Sprintf("%s-%s", cdoc.SPDXDocRef.Doc2_2.Packages[0].PackageName, cdoc.SPDXDocRef.Doc2_2.Packages[0].PackageVersion))
+				newRelationship := &spdx.Relationship2_2{
+					RefA:         rootDocElID,
+					RefB:         elId,
+					Relationship: "DESCRIBES",
+				}
+				doc.SPDXDocRef.Doc2_2.Relationships = append(doc.SPDXDocRef.Doc2_2.Relationships, newRelationship)
 			}
-			doc.SPDXDocRef.Relationships = append(doc.SPDXDocRef.Relationships, newRelationship)
-		}
-		if cdoc != nil && len(cdoc.SPDXDocRef.Relationships) > 0 {
-			cdoc.SPDXDocRef.Relationships = cdoc.SPDXDocRef.Relationships[1:]
+			if cdoc != nil && len(cdoc.SPDXDocRef.Doc2_2.Relationships) > 0 {
+				cdoc.SPDXDocRef.Doc2_2.Relationships = cdoc.SPDXDocRef.Doc2_2.Relationships[1:]
+			}
 		}
 	}
 
 	return doc, composableDocs
+}
+
+func setDocElID(spdxVersion string, doc *Document) spdx.DocElementID {
+	rootDocElID := spdx.DocElementID{}
+	switch spdxVersion {
+	case "2.2":
+		if len(doc.SPDXDocRef.Doc2_2.Packages) > 0 {
+			rootDocElID = spdx.MakeDocElementID("",
+				fmt.Sprintf("%s-%s", doc.SPDXDocRef.Doc2_2.Packages[0].PackageName, doc.SPDXDocRef.Doc2_2.Packages[0].PackageVersion))
+		}
+	default:
+		rootDocElID = spdx.MakeDocElementID("",
+			fmt.Sprintf("%s-%s", doc.ConfigDataRef.PackageName, doc.ConfigDataRef.PackageVersion))
+	}
+	return rootDocElID
 }
