@@ -1,6 +1,8 @@
 # Copyright (c) 2022 VMware, Inc. All Rights Reserved.
 # SPDX-License-Identifier: BSD-2-Clause
 
+# SPDX version the composed doc is output to
+spdxVersion: "SPDX-2.2"
 # SBOM-Composer report for <top level product name>
 documentName: "composed-1.0"
 # Top Level Composed SBOM product
@@ -24,3 +26,11 @@ packageCopyrightText: ""
 packageSupplier: "Example supplier"
 # <text>Any relevant comment</text>. Optional
 packageComment: "<text>Example comment</text>"
+
+# The following fields belong to SPDX config reference
+# Prefix used for DocumentNamespace
+NamespacePrefix: "https://spdx.org/spdxdocs/"
+# Composed SPDX SBOM creator
+Creator:         "sbom-composer-v0.1"
+# Should be always set to "Tool"
+CreatorType:     "Tool"

@@ -12,11 +12,11 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func generateJSONTConfigExample(documentName string, packageName string, spdxID string, packageVersion string,
+func generateJSONTConfigExample(spdxVersion string, documentName string, packageName string, spdxID string, packageVersion string,
 	packageDownloadLocation string, packageChecksum PackageChecksum, filesAnalyzed bool, packageLicenseConcluded string,
 	packageLicenseDeclared string, packageCopyrightText string, packageSupplier string, packageComment string) []byte {
-	jsonStr := fmt.Sprintf("{\"documentName\":\"%s\",\"packageName\":\"%s\",\"spdxID\":\"%s\",\"packageVersion\":\"%s\",\"packageDownloadLocation\":\"%s\",\"filesAnalyzed\":\"%t\",\"packageChecksum\":\"%s\", \"packageLicenseConcluded\":\"%s\", \"packageLicenseDeclared\":\"%s\", \"packageCopyrightText\":\"%s\", \"packageSupplier\":\"%s\", \"packageComment\":\"%s\"}",
-		documentName, packageName, spdxID, packageVersion, packageDownloadLocation, filesAnalyzed, packageChecksum,
+	jsonStr := fmt.Sprintf("{\"spdxVersion\":\"%s\",\"documentName\":\"%s\",\"packageName\":\"%s\",\"spdxID\":\"%s\",\"packageVersion\":\"%s\",\"packageDownloadLocation\":\"%s\",\"filesAnalyzed\":\"%t\",\"packageChecksum\":\"%s\", \"packageLicenseConcluded\":\"%s\", \"packageLicenseDeclared\":\"%s\", \"packageCopyrightText\":\"%s\", \"packageSupplier\":\"%s\", \"packageComment\":\"%s\"}",
+		spdxVersion, documentName, packageName, spdxID, packageVersion, packageDownloadLocation, filesAnalyzed, packageChecksum,
 		packageLicenseConcluded, packageLicenseDeclared, packageCopyrightText, packageSupplier, packageComment)
 
 	return []byte(jsonStr)
@@ -37,11 +37,12 @@ func TestUnmarshalJSONConfig(t *testing.T) {
 
 		pch := PackageChecksum{SHA256: checksum}
 
-		jsonData := generateJSONTConfigExample("composed-1.0", "top-level-artifact", "SPDXRef-DOCUMENT", "1.0", NOASSERTION, pch,
+		jsonData := generateJSONTConfigExample("SPDX-2.2", "composed-1.0", "top-level-artifact", "SPDXRef-DOCUMENT", "1.0", NOASSERTION, pch,
 			false, "BSD-3-Clause", "BSD-3-Clause", NOASSERTION,
 			"somesupplier", "somecomment")
 		conf, _ := UnmarshalJSONConfig(jsonData)
 
+		assert.Equal(t, "SPDX-2.2", conf.SPDXVersion)
 		assert.Equal(t, "composed-1.0", conf.DocumentName)
 		assert.Equal(t, "top-level-artifact", conf.PackageName)
 		assert.Equal(t, "SPDXRef-DOCUMENT", conf.SPDXID)

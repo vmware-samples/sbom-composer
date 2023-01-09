@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"testing"
 
+	"github.com/spdx/tools-golang/builder"
 	"github.com/spdx/tools-golang/spdx"
 	"github.com/stretchr/testify/assert"
 )
@@ -14,7 +15,8 @@ import (
 func TestGenerateComposedDoc(t *testing.T) {
 	fmt.Println("Testing Unmarshal JSON Config")
 	t.Run("Unmarshal Config:", func(t *testing.T) {
-		input := []byte(`documentName: "composed-1.0"
+		input := []byte(`spdxVersion: "SPDX-2.2"
+documentName: "composed-1.0"
 packageName: "top-level-artifact"
 spdxID: "SPDXRef-DOCUMENT"
 packageVersion: "1.0"
@@ -26,19 +28,28 @@ packageLicenseConcluded: "BSD-3-Clause"
 packageLicenseDeclared: "BSD-3-Clause"
 packageCopyrightText: ""
 packageSupplier: "somesupplier"
-packageComment: "<text>somecomment</text>"`)
+packageComment: "<text>somecomment</text>"
+namespacePrefix:  "https://spdx.org/spdxdocs/"
+creator: "sbom-composer-v0.1"
+creatorType: "Tool"`)
 
 		want := Document{
 			SPDXDocRef: &SPDXDocRef{
 				Doc2_2: &spdx.Document2_2{
-					SPDXVersion:       "SPDX-2.2",
 					DataLicense:       "CC0-1.0",
 					SPDXIdentifier:    "DOCUMENT",
 					DocumentName:      "top-level-artifact",
 					DocumentNamespace: "https://spdx.org/spdxdocs/top-level-artifact-",
 				}},
 			ConfigDataRef: &Config{
-				SPDXConfigRef:           SPDXConfigReference,
+				SPDXVersion: "SPDX-2.2",
+				SPDXConfigRef: SPDXConfigRef{
+					Conf2_2: &builder.Config2_2{
+						NamespacePrefix: "https://spdx.org/spdxdocs/",
+						CreatorType:     "Tool",
+						Creator:         "sbom-composer-1.0",
+					},
+				},
 				PackageName:             "top-level-artifact",
 				DocumentName:            "composed-1.0",
 				SPDXID:                  "SPDXRef-DOCUMENT",
@@ -57,10 +68,10 @@ packageComment: "<text>somecomment</text>"`)
 		}
 
 		loadedConfig := createConfig(input)
-		doc, err := Build(SPDX_VERSION, "../example_data/micro_sboms/tag_value", loadedConfig)
+		doc, err := Build("../example_data/micro_sboms/tag_value", loadedConfig)
 		assert.Equal(t, nil, err)
 
-		assert.Equal(t, want.SPDXDocRef.Doc2_2.SPDXVersion, doc.SPDXDocRef.Doc2_2.SPDXVersion)
+		assert.Equal(t, want.ConfigDataRef.SPDXVersion, doc.SPDXDocRef.Doc2_2.SPDXVersion)
 		assert.Equal(t, want.SPDXDocRef.Doc2_2.DataLicense, doc.SPDXDocRef.Doc2_2.DataLicense)
 		assert.Equal(t, want.SPDXDocRef.Doc2_2.SPDXIdentifier, doc.SPDXDocRef.Doc2_2.SPDXIdentifier)
 		assert.Equal(t, want.SPDXDocRef.Doc2_2.DocumentName, doc.SPDXDocRef.Doc2_2.DocumentName)
