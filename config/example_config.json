@@ -13,5 +13,8 @@
     "packageLicenseDeclared": "license, licenseRef or NOASSERTION",
     "packageCopyrightText": "text or NOASSERTION",
     "packageSupplier": "Organization or recognized author of product. Optional",
-    "packageComment": "<text>Any relevant comment</text>. Optional"
+    "packageComment": "<text>Any relevant comment</text>. Optional",
+    "namespacePrefix": "https://spdx.org/spdxdocs/",
+    "creator":         "sbom-composer-v0.1",
+    "creatorType":     "Tool"
 }

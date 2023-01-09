@@ -22,16 +22,15 @@ type PackageChecksum struct {
 }
 
 var NOASSERTION string = "NOASSERTION"
-var SPDXConfigReference *builder.Config2_2 = &builder.Config2_2{
-	NamespacePrefix: "https://spdx.org/spdxdocs/", // TODO: move this to config
-	CreatorType:     "Tool",
-	Creator:         "sbom-composer-1.0", // TODO: automate taking the version
+
+type SPDXConfigRef struct {
+	Conf2_2 *builder.Config2_2
 }
 
 // Config is a collection of configuration settings for builder
 // to create a composed document with.
 type Config struct {
-	SPDXConfigRef *builder.Config2_2
+	SPDXConfigRef SPDXConfigRef
 
 	// SPDXVersion is a configuration for the
 	// version that should be used as an output
@@ -77,6 +76,15 @@ type Config struct {
 
 	// PackageComment is any relevant comment in a <text></text> section
 	PackageComment string `json:"packageComment,omitempty"`
+
+	// NamespacePrefix is a prefix used for DocumentNamespace
+	NamespacePrefix string `json:"namespacePrefix"`
+
+	// Creator is the composed SPDX SBOM creator
+	Creator string `json:"creator"`
+
+	// CreatorType refers to SPDX CreatorType field
+	CreatorType string `json:"creatorType"`
 }
 
 func UnmarshalJSONConfig(jsonData []byte) (*Config, error) {
@@ -115,9 +123,7 @@ func readConfFile(file string) []byte {
 }
 
 func createConfig(loadedData []byte) *Config {
-	conf := Config{}
-
-	conf.SPDXConfigRef = SPDXConfigReference
+	conf := &Config{}
 
 	mapData := make(map[string]interface{})
 
@@ -128,6 +134,8 @@ func createConfig(loadedData []byte) *Config {
 
 	dataByte, _ := json.Marshal(mapData)
 	_ = json.Unmarshal(dataByte, &conf)
+
+	conf = setSPDXConfigRef(conf)
 
 	if len(conf.PackageDownloadLocation) == 0 {
 		conf.PackageDownloadLocation = NOASSERTION
@@ -143,5 +151,27 @@ func createConfig(loadedData []byte) *Config {
 	}
 	conf.PackageChecksum.SHA256 = strings.Trim(conf.PackageChecksum.SHA256, "\"{}")
 
-	return &conf
+	return conf
+}
+
+func setSPDXConfigRef(conf *Config) *Config {
+	switch conf.SPDXVersion {
+	case "SPDX-2.2":
+		conf.SPDXConfigRef = SPDXConfigRef{
+			Conf2_2: &builder.Config2_2{
+				NamespacePrefix: conf.NamespacePrefix,
+				CreatorType:     conf.CreatorType,
+				Creator:         conf.Creator,
+			},
+		}
+	default:
+		conf.SPDXConfigRef = SPDXConfigRef{
+			Conf2_2: &builder.Config2_2{
+				NamespacePrefix: conf.NamespacePrefix,
+				CreatorType:     conf.CreatorType,
+				Creator:         conf.Creator,
+			},
+		}
+	}
+	return conf
 }

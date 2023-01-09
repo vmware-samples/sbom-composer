@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"testing"
 
+	"github.com/spdx/tools-golang/builder"
 	"github.com/spdx/tools-golang/spdx"
 	"github.com/stretchr/testify/assert"
 )
@@ -27,7 +28,10 @@ packageLicenseConcluded: "BSD-3-Clause"
 packageLicenseDeclared: "BSD-3-Clause"
 packageCopyrightText: ""
 packageSupplier: "somesupplier"
-packageComment: "<text>somecomment</text>"`)
+packageComment: "<text>somecomment</text>"
+namespacePrefix:  "https://spdx.org/spdxdocs/"
+creator: "sbom-composer-v0.1"
+creatorType: "Tool"`)
 
 		want := Document{
 			SPDXDocRef: &SPDXDocRef{
@@ -38,8 +42,14 @@ packageComment: "<text>somecomment</text>"`)
 					DocumentNamespace: "https://spdx.org/spdxdocs/top-level-artifact-",
 				}},
 			ConfigDataRef: &Config{
-				SPDXVersion:             "SPDX-2.2",
-				SPDXConfigRef:           SPDXConfigReference,
+				SPDXVersion: "SPDX-2.2",
+				SPDXConfigRef: SPDXConfigRef{
+					Conf2_2: &builder.Config2_2{
+						NamespacePrefix: "https://spdx.org/spdxdocs/",
+						CreatorType:     "Tool",
+						Creator:         "sbom-composer-1.0",
+					},
+				},
 				PackageName:             "top-level-artifact",
 				DocumentName:            "composed-1.0",
 				SPDXID:                  "SPDXRef-DOCUMENT",

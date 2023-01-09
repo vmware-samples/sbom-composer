@@ -26,3 +26,11 @@ packageCopyrightText: ""
 packageSupplier: "Example supplier"
 # <text>Any relevant comment</text>. Optional
 packageComment: "<text>Example comment</text>"
+
+# The following fields belong to SPDX config reference
+# Prefix used for DocumentNamespace
+NamespacePrefix: "https://spdx.org/spdxdocs/"
+# Composed SPDX SBOM creator
+Creator:         "sbom-composer-v0.1"
+# Should be always set to "Tool"
+CreatorType:     "Tool"
