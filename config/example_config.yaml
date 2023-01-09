@@ -1,6 +1,8 @@
 # Copyright (c) 2022 VMware, Inc. All Rights Reserved.
 # SPDX-License-Identifier: BSD-2-Clause
 
+# SPDX version the composed doc is output to
+spdxVersion: "SPDX-2.2"
 # SBOM-Composer report for <top level product name>
 documentName: "composed-1.0"
 # Top Level Composed SBOM product

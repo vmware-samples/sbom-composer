@@ -15,7 +15,7 @@ import (
 )
 
 // PackageChecksum is a unique identifier used to verify if all files
-// in the orginal package are unchanged, exluding SPDX documents.
+// in the original package are unchanged, excluding SPDX documents.
 // Should be generated with SHA256.
 type PackageChecksum struct {
 	SHA256 string
@@ -32,6 +32,10 @@ var SPDXConfigReference *builder.Config2_2 = &builder.Config2_2{
 // to create a composed document with.
 type Config struct {
 	SPDXConfigRef *builder.Config2_2
+
+	// SPDXVersion is a configuration for the
+	// version that should be used as an output
+	SPDXVersion string `json:"spdxVersion"`
 
 	// DocumentName is an SBOM-Composer report
 	// for <top level product name>

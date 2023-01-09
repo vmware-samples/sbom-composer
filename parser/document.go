@@ -29,9 +29,16 @@ func CreateDocumentWithSPDXRef() *Document {
 	return doc
 }
 
-func UpdatePackages(spdxVersion string, spdxDocRef *SPDXDocRef, conf *Config) {
-	switch spdxVersion {
-	case "2.2":
+func UpdatePackages(spdxDocRef *SPDXDocRef, conf *Config) {
+	switch conf.SPDXVersion {
+	case "SPDX-2.2":
+		for i := range spdxDocRef.Doc2_2.Packages {
+			if spdxDocRef.Doc2_2.Packages[i].PackageName == conf.PackageName &&
+				len(spdxDocRef.Doc2_2.Packages[i].PackageVersion) == 0 {
+				spdxDocRef.Doc2_2.Packages[i].PackageVersion = conf.PackageVersion
+			}
+		}
+	default:
 		for i := range spdxDocRef.Doc2_2.Packages {
 			if spdxDocRef.Doc2_2.Packages[i].PackageName == conf.PackageName &&
 				len(spdxDocRef.Doc2_2.Packages[i].PackageVersion) == 0 {

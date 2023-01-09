@@ -13,9 +13,6 @@ import (
 	"github.com/spdx/tools-golang/tvsaver"
 )
 
-// TODO: Make configurable
-var SPDX_VERSION = "2.2"
-
 func Save(doc *Document, composableDocs []*Document, output string, outFormat string) error {
 
 	output = updateFileExtension(output, outFormat)
@@ -29,17 +26,17 @@ func Save(doc *Document, composableDocs []*Document, output string, outFormat st
 
 	// It's not necessary for the composed doc to
 	// contain all merged documents as Files
-	doc = cleanDocumentFileData(SPDX_VERSION, doc)
+	doc = cleanDocumentFileData(doc)
 
-	updateRelationships(SPDX_VERSION, doc, composableDocs)
+	updateRelationships(doc, composableDocs)
 
 	for _, cdoc := range composableDocs {
 		if cdoc != nil {
-			AppendComposableDocument(SPDX_VERSION, doc, cdoc, w, outFormat)
+			AppendComposableDocument(doc, cdoc, w, outFormat)
 		}
 	}
 
-	err = SaveVersion(SPDX_VERSION, outFormat, doc, w)
+	err = SaveVersion(outFormat, doc, w)
 	if err != nil {
 		fmt.Printf("error while saving %v: %v\n", output, err)
 		return err
@@ -47,19 +44,19 @@ func Save(doc *Document, composableDocs []*Document, output string, outFormat st
 	return nil
 }
 
-func SaveVersion(version string, format string, doc *Document, w *os.File) error {
+func SaveVersion(format string, doc *Document, w *os.File) error {
 	switch format {
 	case "tv":
-		if version == "2.2" {
+		if doc.ConfigDataRef.SPDXVersion == "SPDX-2.2" {
 			return tvsaver.Save2_2(doc.SPDXDocRef.Doc2_2, w)
 		}
 	case "json":
-		if version == "2.2" {
+		if doc.ConfigDataRef.SPDXVersion == "SPDX-2.2" {
 			return spdx_json.Save2_2(doc.SPDXDocRef.Doc2_2, w)
 		}
 	default:
 		fmt.Printf("warn: %s is not proper output format; saving to default\n", format)
-		if version == "2.2" {
+		if doc.ConfigDataRef.SPDXVersion == "SPDX-2.2" {
 			return tvsaver.Save2_2(doc.SPDXDocRef.Doc2_2, w)
 		}
 	}
@@ -69,10 +66,10 @@ func SaveVersion(version string, format string, doc *Document, w *os.File) error
 
 // RenderComposableDocument processes a composable document
 // and renders it to the composed document
-func AppendComposableDocument(spdxVersion string, res *Document, cdoc *Document, w io.Writer, outFormat string) {
+func AppendComposableDocument(res *Document, cdoc *Document, w io.Writer, outFormat string) {
 
-	switch spdxVersion {
-	case "2.2":
+	switch res.ConfigDataRef.SPDXVersion {
+	case "SPDX-2.2":
 		res.SPDXDocRef.Doc2_2.Annotations = append(res.SPDXDocRef.Doc2_2.Annotations, cdoc.SPDXDocRef.Doc2_2.Annotations...)
 		res.SPDXDocRef.Doc2_2.ExternalDocumentReferences = append(res.SPDXDocRef.Doc2_2.ExternalDocumentReferences, cdoc.SPDXDocRef.Doc2_2.ExternalDocumentReferences...)
 		res.SPDXDocRef.Doc2_2.Files = append(res.SPDXDocRef.Doc2_2.Files, cdoc.SPDXDocRef.Doc2_2.Files...)
@@ -84,9 +81,15 @@ func AppendComposableDocument(spdxVersion string, res *Document, cdoc *Document,
 	}
 }
 
-func cleanDocumentFileData(spdxVersion string, doc *Document) *Document {
-	switch spdxVersion {
-	case "2.2":
+func cleanDocumentFileData(doc *Document) *Document {
+	switch doc.ConfigDataRef.SPDXVersion {
+	case "SPDX-2.2":
+		doc.SPDXDocRef.Doc2_2.Files = []*spdx.File2_2{}
+
+		for i := range doc.SPDXDocRef.Doc2_2.Packages {
+			doc.SPDXDocRef.Doc2_2.Packages[i].Files = []*spdx.File2_2{}
+		}
+	default:
 		doc.SPDXDocRef.Doc2_2.Files = []*spdx.File2_2{}
 
 		for i := range doc.SPDXDocRef.Doc2_2.Packages {
@@ -97,12 +100,26 @@ func cleanDocumentFileData(spdxVersion string, doc *Document) *Document {
 	return doc
 }
 
-func updateRelationships(spdxVersion string, doc *Document, composableDocs []*Document) (*Document, []*Document) {
+func updateRelationships(doc *Document, composableDocs []*Document) (*Document, []*Document) {
 
-	rootDocElID := setDocElID(spdxVersion, doc)
+	rootDocElID := setDocElID(doc)
 	for _, cdoc := range composableDocs {
-		switch spdxVersion {
-		case "2.2":
+		switch cdoc.ConfigDataRef.SPDXVersion {
+		case "SPDX-2.2":
+			if cdoc != nil && len(cdoc.SPDXDocRef.Doc2_2.Packages) > 0 {
+				elId := spdx.MakeDocElementID("",
+					fmt.Sprintf("%s-%s", cdoc.SPDXDocRef.Doc2_2.Packages[0].PackageName, cdoc.SPDXDocRef.Doc2_2.Packages[0].PackageVersion))
+				newRelationship := &spdx.Relationship2_2{
+					RefA:         rootDocElID,
+					RefB:         elId,
+					Relationship: "DESCRIBES",
+				}
+				doc.SPDXDocRef.Doc2_2.Relationships = append(doc.SPDXDocRef.Doc2_2.Relationships, newRelationship)
+			}
+			if cdoc != nil && len(cdoc.SPDXDocRef.Doc2_2.Relationships) > 0 {
+				cdoc.SPDXDocRef.Doc2_2.Relationships = cdoc.SPDXDocRef.Doc2_2.Relationships[1:]
+			}
+		default:
 			if cdoc != nil && len(cdoc.SPDXDocRef.Doc2_2.Packages) > 0 {
 				elId := spdx.MakeDocElementID("",
 					fmt.Sprintf("%s-%s", cdoc.SPDXDocRef.Doc2_2.Packages[0].PackageName, cdoc.SPDXDocRef.Doc2_2.Packages[0].PackageVersion))
@@ -122,10 +139,10 @@ func updateRelationships(spdxVersion string, doc *Document, composableDocs []*Do
 	return doc, composableDocs
 }
 
-func setDocElID(spdxVersion string, doc *Document) spdx.DocElementID {
+func setDocElID(doc *Document) spdx.DocElementID {
 	rootDocElID := spdx.DocElementID{}
-	switch spdxVersion {
-	case "2.2":
+	switch doc.ConfigDataRef.SPDXVersion {
+	case "SPDX-2.2":
 		if len(doc.SPDXDocRef.Doc2_2.Packages) > 0 {
 			rootDocElID = spdx.MakeDocElementID("",
 				fmt.Sprintf("%s-%s", doc.SPDXDocRef.Doc2_2.Packages[0].PackageName, doc.SPDXDocRef.Doc2_2.Packages[0].PackageVersion))

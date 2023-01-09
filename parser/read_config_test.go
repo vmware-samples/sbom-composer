@@ -15,7 +15,8 @@ func TestLoadConfigYAML(t *testing.T) {
 	t.Run("Loading YAML Config:", func(t *testing.T) {
 
 		conf := LoadConfig("../config/example_config.yaml")
-		fmt.Println(conf)
+
+		assert.Equal(t, "SPDX-2.2", conf.SPDXVersion)
 		assert.Equal(t, "composed-1.0", conf.DocumentName)
 		assert.Equal(t, "top-level-artifact", conf.PackageName)
 		assert.Equal(t, "SPDXRef-DOCUMENT", conf.SPDXID)

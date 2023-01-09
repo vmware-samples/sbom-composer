@@ -1,4 +1,5 @@
 {
+    "spdxVersion": "SPDX-2.2",
     "documentName": "composed-1.0",
     "packageName": "top-level-artifact",
     "spdxID": "SPDXRef-composed-sbom-product",
