@@ -22,10 +22,11 @@ const figletStr = `
 `
 
 var (
-	dir    string
-	save   string
-	config string
-	out    string
+	dir     string
+	save    string
+	config  string
+	out     string
+	filters []string
 )
 
 func init() {
@@ -33,6 +34,8 @@ func init() {
 	composeCommand.Flags().StringVarP(&save, "save", "s", "composed.spdx", "Save composed data to")
 	composeCommand.Flags().StringVarP(&config, "conf", "c", "config.yaml", "Configuration for the composed document")
 	composeCommand.Flags().StringVarP(&out, "out", "o", "tv", "Output format of the composed document")
+	var defaultFilterList []string
+	composeCommand.Flags().StringArrayVarP(&filters, "filters", "f", defaultFilterList, "A list of packages to filter from the output")
 }
 
 var composeCommand = &cobra.Command{
@@ -57,7 +60,7 @@ func runSBOMCompose(cmd *cobra.Command, args []string) error {
 	if len(save) > 0 {
 		fmt.Printf("...generating composed SPDX document from directory: %s\n", dir)
 		fmt.Printf("...using config: %s\n", config)
-		parser.GenerateComposedDoc(dir, save, out, config)
+		parser.GenerateComposedDoc(dir, save, out, filters, config)
 		fmt.Printf("...document saved to %s in \"%s\" format\n\n", save, out)
 	}
 	return nil

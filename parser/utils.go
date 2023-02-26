@@ -4,6 +4,7 @@
 package parser
 
 import (
+	"fmt"
 	"io/ioutil"
 	"log"
 	"strings"
@@ -31,4 +32,31 @@ func updateFileExtension(file string, outFormat string) string {
 		file = file + ".json"
 	}
 	return file
+}
+
+func contains(l []string, e string) bool {
+	for _, p := range l {
+		if p == e {
+			return true
+		}
+	}
+	return false
+}
+
+func containsSubstring(l []string, e string) bool {
+	for _, r := range l {
+		if strings.Contains(e, r) {
+			isPrefixOfAnotherPackage := false
+			suff := strings.SplitAfter(e, r)
+			for i := 1; i < 11; i++ {
+				if len(suff) > 1 {
+					if strings.HasPrefix(suff[1], fmt.Sprintf("%d", i)) {
+						isPrefixOfAnotherPackage = true
+					}
+				}
+			}
+			return !isPrefixOfAnotherPackage
+		}
+	}
+	return false
 }

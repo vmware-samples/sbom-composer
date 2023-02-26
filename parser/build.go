@@ -30,7 +30,7 @@ func BuildVersion(spdxVersion string, dirRoot string, conf *Config) SPDXDocRef {
 	return res
 }
 
-func GenerateComposedDoc(dirRoot string, output string, outFormat string, confFile string) error {
+func GenerateComposedDoc(dirRoot string, output string, outFormat string, filters []string, confFile string) error {
 	conf := LoadConfig(confFile)
 
 	doc, err := Build(SPDX_VERSION, dirRoot, conf)
@@ -40,7 +40,7 @@ func GenerateComposedDoc(dirRoot string, output string, outFormat string, confFi
 
 	composableDocs := LoadAll(dirRoot)
 
-	err = Save(doc, composableDocs, output, outFormat)
+	err = Save(doc, composableDocs, filters, output, outFormat)
 	if err != nil {
 		fmt.Printf("failed to save composed document %v: %v", output, err)
 		return err

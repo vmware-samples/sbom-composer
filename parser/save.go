@@ -16,7 +16,7 @@ import (
 // TODO: Make configurable
 var SPDX_VERSION = "2.2"
 
-func Save(doc *Document, composableDocs []*Document, output string, outFormat string) error {
+func Save(doc *Document, composableDocs []*Document, filters []string, output string, outFormat string) error {
 
 	output = updateFileExtension(output, outFormat)
 
@@ -31,11 +31,13 @@ func Save(doc *Document, composableDocs []*Document, output string, outFormat st
 	// contain all merged documents as Files
 	doc = cleanDocumentFileData(SPDX_VERSION, doc)
 
+	composableDocs = filterComposableDocs(composableDocs, filters)
+
 	updateRelationships(SPDX_VERSION, doc, composableDocs)
 
 	for _, cdoc := range composableDocs {
 		if cdoc != nil {
-			AppendComposableDocument(SPDX_VERSION, doc, cdoc, w, outFormat)
+			AppendComposableDocument(SPDX_VERSION, doc, cdoc, filters, w, outFormat)
 		}
 	}
 
@@ -69,7 +71,7 @@ func SaveVersion(version string, format string, doc *Document, w *os.File) error
 
 // RenderComposableDocument processes a composable document
 // and renders it to the composed document
-func AppendComposableDocument(spdxVersion string, res *Document, cdoc *Document, w io.Writer, outFormat string) {
+func AppendComposableDocument(spdxVersion string, res *Document, cdoc *Document, filters []string, w io.Writer, outFormat string) {
 
 	switch spdxVersion {
 	case "2.2":
@@ -82,6 +84,51 @@ func AppendComposableDocument(spdxVersion string, res *Document, cdoc *Document,
 		res.SPDXDocRef.Doc2_2.Reviews = append(res.SPDXDocRef.Doc2_2.Reviews, cdoc.SPDXDocRef.Doc2_2.Reviews...)
 		res.SPDXDocRef.Doc2_2.Snippets = append(res.SPDXDocRef.Doc2_2.Snippets, cdoc.SPDXDocRef.Doc2_2.Snippets...)
 	}
+}
+
+func filterComposableDocs(cdocs []*Document, filters []string) []*Document {
+	for i, c := range cdocs {
+		cdocs[i].SPDXDocRef.Doc2_2.Packages = filterPackages(c.SPDXDocRef.Doc2_2.Packages, filters)
+		cdocs[i].SPDXDocRef.Doc2_2.Relationships = filterRelationships(c.SPDXDocRef.Doc2_2.Relationships, filters)
+	}
+	return cdocs
+}
+
+func filterPackages(packages []*spdx.Package2_2, filters []string) []*spdx.Package2_2 {
+	res := []*spdx.Package2_2{}
+
+	identical := true
+	for _, p := range packages {
+		if contains(filters, p.PackageName) {
+			identical = false
+		} else {
+			res = append(res, p)
+		}
+	}
+	if !identical {
+		return res
+	}
+
+	return packages
+}
+
+func filterRelationships(relationships []*spdx.Relationship2_2, filters []string) []*spdx.Relationship2_2 {
+	res := []*spdx.Relationship2_2{}
+
+	identical := true
+	for _, r := range relationships {
+		if containsSubstring(filters, string(r.RefA.ElementRefID)) ||
+			containsSubstring(filters, string(r.RefB.ElementRefID)) {
+			identical = false
+		} else {
+			res = append(res, r)
+		}
+	}
+	if !identical {
+		return res
+	}
+
+	return relationships
 }
 
 func cleanDocumentFileData(spdxVersion string, doc *Document) *Document {
