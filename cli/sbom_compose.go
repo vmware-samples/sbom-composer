@@ -60,7 +60,10 @@ func runSBOMCompose(cmd *cobra.Command, args []string) error {
 	if len(save) > 0 {
 		fmt.Printf("...generating composed SPDX document from directory: %s\n", dir)
 		fmt.Printf("...using config: %s\n", config)
-		parser.GenerateComposedDoc(dir, save, out, filters, config)
+		err := parser.GenerateComposedDoc(dir, save, out, filters, config)
+		if err != nil {
+			fmt.Printf("failed to generate composed document: %v/n", err)
+		}
 		fmt.Printf("...document saved to %s in \"%s\" format\n\n", save, out)
 	}
 	return nil
