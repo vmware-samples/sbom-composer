@@ -1,5 +1,9 @@
 # sbom-composer
 
+**This project is now officially migrated to [opensbom-generator/sbom-composer](https://github.com/opensbom-generator/sbom-composer).**
+
+**Please visit the new official repository instead.**
+
 ## Overview
 sbom-composer is a tool that serves for composing two or more micro SBOMs into a single SBOM document in SPDX format.
 
