@@ -23,8 +23,6 @@ github.com/stretchr/objx v0.4.0/go.mod h1:YvHI0jy2hoMjB+UWwv71VJQ9isScKT/TqJzVSS
 github.com/stretchr/testify v1.7.1/go.mod h1:6Fq8oRcR53rry900zMqJjRRixrwX3KX962/h/Wwjteg=
 github.com/stretchr/testify v1.8.0 h1:pSgiaMZlXftHpm5L7V1+rVB+AZJydKsMxsQBIJw4PKk=
 github.com/stretchr/testify v1.8.0/go.mod h1:yNjHg4UonilssWZ8iaSj1OCr/vHnekPRkoO+kdMU+MU=
-github.com/vmware-samples/sbom-composer/parser v0.0.0-20220830173727-93b7e7dff554 h1:MfJVWIQpgH1kF2BdWsMSWRVtTsIpjN5Vf+KtP3Xl7pc=
-github.com/vmware-samples/sbom-composer/parser v0.0.0-20220830173727-93b7e7dff554/go.mod h1:xOTj7zLArs/RIN/jJp0Lxi0xPGU483zO04MGSHVNIWA=
 github.com/vmware-samples/sbom-composer/parser v0.0.0-20230226221936-9042055273ca h1:QNe2FZJczR5FeRa1LFs/NS5yN9NY+r89FnzVuTfK1x4=
 github.com/vmware-samples/sbom-composer/parser v0.0.0-20230226221936-9042055273ca/go.mod h1:xOTj7zLArs/RIN/jJp0Lxi0xPGU483zO04MGSHVNIWA=
 golang.org/x/xerrors v0.0.0-20191204190536-9bdfabe68543/go.mod h1:I/5z698sn9Ka8TeJc9MKroUUfqBBauWjQqLJ2OPfmY0=
